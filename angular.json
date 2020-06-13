@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "freelancing"
+    }
+  },
+  "defaultProject": "freelancing",
+  "cli": {
+    "analytics": "2d4a971d-eae1-4dcd-a8bb-23e0e15c2584"
+  }
 }
