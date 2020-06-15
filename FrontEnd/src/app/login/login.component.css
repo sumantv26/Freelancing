@@ -1,0 +1,40 @@
+.one{
+    width: 100vw;
+    height: 700px;
+    background-color:#F2F2F2;
+    color: black;
+    position: relative;
+}
+.two{
+    width: 550px;
+    height: 500px;
+    background-color: white;
+    margin-left:380px;
+    margin-top: 50px;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+.p1{
+    margin-top: 50px;
+}
+.btn{
+    width: 400px;
+    background-color:#008329;
+}
+#email{
+    width: 400px;
+    margin-left: 75px;
+}
+#pwd{
+    width: 400px;
+    margin-left: 75px;
+}
+.p2{
+    margin-top: 100px;
+}
+#signup{
+    background-color: white;
+    color: green;
+}
