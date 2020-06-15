@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "freelancing": {
+    "FrontEnd": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/freelancing",
+            "outputPath": "dist/FrontEnd",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "freelancing:build"
+            "browserTarget": "FrontEnd:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "freelancing:build:production"
+              "browserTarget": "FrontEnd:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "freelancing:build"
+            "browserTarget": "FrontEnd:build"
           }
         },
         "test": {
@@ -110,19 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "freelancing:serve"
+            "devServerTarget": "FrontEnd:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "freelancing:serve:production"
+              "devServerTarget": "FrontEnd:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "freelancing",
+  "defaultProject": "FrontEnd",
   "cli": {
-    "analytics": "2d4a971d-eae1-4dcd-a8bb-23e0e15c2584"
+    "analytics": "c319c637-6d30-4ec5-b672-9e9944e04af6"
   }
 }
