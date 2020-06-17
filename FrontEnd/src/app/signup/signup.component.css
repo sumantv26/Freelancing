@@ -1,0 +1,50 @@
+.one{
+
+    height: 550px;
+    background-color:#1D4354;
+    color: black;
+    position: relative;
+   
+}
+.two{
+    width: 550px;
+    height: 500px;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.p1{
+    margin-top: 50px;
+}
+.btn{
+    width: 400px;
+    background-color:#008329;
+}
+#name{
+    width: 400px;
+    margin-left: 75px;
+}
+#email{
+    width: 400px;
+    margin-left: 75px;
+}
+#mobNo{
+    width: 400px;
+    margin-left: 75px;
+}
+#pwd{
+    width: 400px;
+    margin-left: 75px;
+}
+#confirmPwd{
+    width: 400px;
+    margin-left: 75px;
+}
+.p2{
+    margin-top: 100px;
+}
