@@ -108,7 +108,24 @@ button:hover{
 
 }
 
-
+/* search bar */
+.search-input{
+   
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    color:#018328;
+}
+.search-input input{
+    padding-left: 25px;
+    border-radius: 50px;
+    border: 2px solid #018328;
+    outline: none;
+    width: 300px;
+}
 
 /*
 .left-nav{
