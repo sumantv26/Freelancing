@@ -40,6 +40,9 @@
     padding: 8px;
     outline: none;
 }
+.getstarted-btn:hover{
+    box-shadow: 5px 5px 5px gray;
+}
 
 /* cards */
 .card-container{
