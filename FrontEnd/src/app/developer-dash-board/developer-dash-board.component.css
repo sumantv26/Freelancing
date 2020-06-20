@@ -1,3 +1,11 @@
+
+.greeting{
+    text-align: center;
+}
+.greeting span{
+    color: #008329;
+}
+
 .one{
 
     height: 550px;
