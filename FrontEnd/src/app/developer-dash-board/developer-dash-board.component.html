@@ -1,0 +1,28 @@
+<div class="greeting">
+    <h2>Welcome {{name}}</h2>
+<h3>Enter your details: </h3>
+</div>
+<div class="one">
+    <div class="two">
+        <p class="p1">Get your free account</p>
+          <form #f="ngForm" ngNativeValidate>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="catagoryProp" [ngModelOptions]="{standalone: true}" placeholder="You are(ex. software developer)" id="name" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control"  [(ngModel)]="experienceProp" [ngModelOptions]="{standalone: true}" placeholder="Year of experience you have" id="email" required>
+              </div>
+              <!-- <div class="form-group">
+                <input type="mobileNo" class="form-control" placeholder="Mobile Number" id="mobNo">
+              </div> -->
+            <div class="form-group">
+              <input type="text" [(ngModel)]="degreeProp" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="what is you collage degree(ex. BTech, MTech)" id="pwd" required>
+            </div>
+            <!-- <div class="form-group">
+                <input type="confirmPassword" class="form-control" placeholder="Confirm Password" id="confirmPwd">
+              </div> -->
+            <button type="submit" class="btn btn-success" (click)="save()" >Save</button>
+          </form>
+    </div>
+</div>
+

@@ -1,3 +1,8 @@
 presentation
 
+<<<<<<< HEAD
 added some more text
+=======
+Hey Geetesh
+How are you ?
+>>>>>>> 4f58d74ea3feaed2d3b4de64720b5533dc9e3de5
