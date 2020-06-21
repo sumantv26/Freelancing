@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   
-  baseURL = "http://localhost:3000";
+  baseURL = "http://localhost:4000";
 
   constructor(private http: HttpClient) { }
 
@@ -16,9 +16,10 @@ export class DataService {
     return this.http.post(this.baseURL+"/sign-up", data);
   }
 
-  signIn(data):any
+  signIn():any
   {
-    return this.http.post(this.baseURL+"/sign-in", data);
+    // return this.http.post(this.baseURL+"/sign-in", data);
+    return this.http.get(this.baseURL+"/sign-up");
   }
 
   

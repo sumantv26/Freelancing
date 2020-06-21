@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mainpage-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +18,11 @@ export class MainpageHeaderComponent implements OnInit {
   ul.setAttribute("display","flex")
   alert("flex")
 
+ }
+
+ check(val){
+  localStorage.setItem("searchResult",val)
+  this.router.navigate(['/searchResult'])
  }
 
 }

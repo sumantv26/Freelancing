@@ -6,13 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DevdataService {
 
-  baseURL = "http://localhost:3000";
+  baseURL = "http://localhost:4000";
 
   constructor(private http: HttpClient) { }
 
   save(data):any
   {
-    return this.http.post(this.baseURL+"/save", data);
+    return this.http.post(this.baseURL+"/dev", data);
+  }
+  GetDevData(){
+    return this.http.get(this.baseURL+"/dev");
   }
 
 }

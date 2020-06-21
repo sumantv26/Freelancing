@@ -13,27 +13,27 @@
     <div class="card-container">
         <h3>Find quality talent or agencies</h3>
         <div class="cards">
-            <div class="item">
+            <div class="item"   (click)="sendMsg('web')">
                 <img src="../../assets/web.svg" alt="">
                 <h6>Web, Mobile & Software Dev</h6>
             </div>
-            <div class="item">
+            <div class="item" (click)="sendMsg('writing')">
                 <img src="../../assets/writing.svg" alt="">
                 <h6>Writing</h6>
             </div>
-            <div class="item">
+            <div class="item" (click)="sendMsg('design')">
                 <img src="../../assets/design&creative.svg" alt="">
                 <h6>Designing & Creative</h6>
             </div>
-            <div class="item">
+            <div class="item" (click)="sendMsg('engineering')">
                 <img src="../../assets/engAndArch.svg" alt="">
                 <h6>Engineering & Architecture</h6>
             </div>
-            <div class="item">
+            <div class="item" (click)="sendMsg('datascience')">
                 <img src="../../assets/datascience.svg" alt="">
                 <h6>Data Science & Analytics</h6>
             </div>
-            <div class="item">
+            <div class="item" (click)="sendMsg('sales')">
                 <img src="../../assets/salesAndMarketing.svg" alt="">
                 <h6>Sales & Marketing</h6>
             </div>
@@ -41,3 +41,4 @@
     </div>
     
 </div>
+<router-outlet></router-outlet>

@@ -17,11 +17,14 @@ import { FreelancersBySkillComponent } from './freelancers-by-skill/freelancers-
 import { FindDevelopersComponent } from './find-developers/find-developers.component';
 import { WhoYouAreComponent } from './who-you-are/who-you-are.component';
 import { DeveloperDashBoardComponent } from './developer-dash-board/developer-dash-board.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 const routes: Routes = [{path:'',component:MainPageComponent,
                           children:[{path:'',component:MainpageHomeComponent},
-                          {path:'home',component:MainpageHomeComponent},
+                          {path:'home',component:MainpageHomeComponent,children:[
+            
+                          ]},
                           {path:'signin',component:LoginComponent},
                           {path:'contact',component:ContactComponent},
                           {path:'signup',component:SignupComponent},
@@ -35,11 +38,13 @@ const routes: Routes = [{path:'',component:MainPageComponent,
                           {path:'businessResources',component:BusinessResourcesComponent},
                           {path:'freelancersBySkill',component:FreelancersBySkillComponent},
                           {path:'findDevelopers',component:FindDevelopersComponent},
-                          {path:'who-you-are',component:WhoYouAreComponent}
+                          {path:'who-you-are',component:WhoYouAreComponent},
                          
+                          
                           ]
                           },
-                          {path:'dev-dashboard',component:DeveloperDashBoardComponent}
+                          {path:'dev-dashboard',component:DeveloperDashBoardComponent},
+                          {path:'searchResult',component:SearchResultComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

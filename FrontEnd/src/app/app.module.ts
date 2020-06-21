@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { WhoYouAreComponent } from './who-you-are/who-you-are.component';
 import { DeveloperDashBoardComponent } from './developer-dash-board/developer-dash-board.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { DeveloperDashBoardComponent } from './developer-dash-board/developer-da
     FreelancersBySkillComponent,
     FindDevelopersComponent,
     WhoYouAreComponent,
-    DeveloperDashBoardComponent
+    DeveloperDashBoardComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

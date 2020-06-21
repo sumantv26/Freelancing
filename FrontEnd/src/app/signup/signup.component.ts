@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  acFound;
   nameProp="";
   emailProp="";
   passwordProp="";
@@ -22,13 +22,38 @@ export class SignupComponent implements OnInit {
 
   }
      else
-  { this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp})
+  { 
+    this.ds.signIn()
+    .subscribe((response)=>{
+      if(response.status=="ok")
+      {
+
+        response.data.forEach(element => {
+          if(element.email==this.emailProp){
+            
+            this.acFound=false
+          }
+          else{
+            this.acFound=true
+          }
+        });
+      }
+      if(response.status=="failed" ||  this.acFound){
+        this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp})
       .subscribe((response)=>{
         if(response.status=="ok")
         {
             alert("Sign Up Successfull you will be redirected to sign in ");
             this.router.navigate(['/signin']);
         }
+       
       })
-  }}
+       }
+       else{
+        alert(" Your Account Is Already Created")
+       }
+      
+    })
+  }
+}
 }

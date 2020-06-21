@@ -7,6 +7,7 @@ const ObjectId = require('mongodb').ObjectId;
 // var client = new MongoClient('mongodb://localhost:27017/chatroom', {useNewUrlParser:true})
 var client = new MongoClient("mongodb+srv://sumant:rajendrav26@cluster0-6ko7m.mongodb.net/freelance?retryWrites=true&w=majority", {useNewUrlParser:true})
 
+const PORT= process.env.PORT||3000
 
 var connection;
 client.connect((err, con)=>{
@@ -47,7 +48,7 @@ app.post('/sign-up', bodyParser.json() ,(req,res)=>{
    });
    
 
-app.post('/sign-in', bodyParser.json() ,(req,res)=>{ 
+app.get('/sign-up', bodyParser.json() ,(req,res)=>{ 
 
 
 
@@ -66,10 +67,12 @@ app.post('/sign-in', bodyParser.json() ,(req,res)=>{
 
     });
 
-// add developer info to db
-app.post('/save', bodyParser.json() ,(req,res)=>{  
+ 
 
-    const collection = connection.db('freelanceDev').collection('devinfo');
+// add developer info to db
+app.post('/dev', bodyParser.json() ,(req,res)=>{  
+
+    const collection = connection.db('Developer').collection('devdata');
 
 
     collection.insert(req.body, (err,result)=>{
@@ -81,12 +84,27 @@ app.post('/save', bodyParser.json() ,(req,res)=>{
             res.send({status:"failed", data:"could not register"});
         }
     })
-
-
-
 });
 
-app.listen(3000, ()=>{
+
+app.get('/dev', bodyParser.json() ,(req,res)=>{ 
+
+
+    const collection = connection.db('Developer').collection('devdata');
+
+    collection.find(req.body).toArray((err,docs)=>{
+        if(!err && docs.length>0)
+        {
+            res.send({status:"ok", data:docs});
+        }
+        else{
+            res.send({status:"failed", data:"some error occured"});
+        }
+    })
+
+    });
+
+app.listen(4000, ()=>{
     console.log("Server is listening on port 3000");
     // console.log("got to browser and hit 'localhost:3000'");
 })

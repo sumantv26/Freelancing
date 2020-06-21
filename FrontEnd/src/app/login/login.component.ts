@@ -9,10 +9,11 @@ import { DataService } from '../data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  acFound;
   emailProp="";
   passwordProp="";
   constructor(private router:Router, private ds:DataService) { }
+  details=[];
 
   ngOnInit(): void {
   }
@@ -24,16 +25,41 @@ export class LoginComponent implements OnInit {
 
      }
      else{
-      this.ds.signIn({email:this.emailProp, password:this.passwordProp})
+      // {email:this.emailProp, password:this.passwordProp}
+      this.ds.signIn()
       .subscribe((response)=>{
         if(response.status=="ok")
         {
 
-          localStorage.setItem('email', this.emailProp);
-          localStorage.setItem('name', response.data[0].name);
-          this.router.navigate(['/dev-dashboard']); 
+          // localStorage.setItem('email', this.emailProp);
+          // localStorage.setItem('name', response.data[0].name);
+          // this.data=response.data[0].password
+          response.data.forEach(element => {
+            // this.details.push(element.name)
+            console.log(element.email,element.password)
+            if(element.email==this.emailProp && element.password==this.passwordProp){
+              
+              this.acFound=true
+              console.log(element.email, element.password)
+              localStorage.setItem('email', element.email);
+            localStorage.setItem('name', element.name);
+              
+            }
+            else{
+              this.acFound=false
+              // alert("account not found")
+            }
+          });
+          // this.router.navigate(['/dev-dashboard']); 
 
+          if(this.acFound){
+            this.router.navigate(['/dev-dashboard']); 
+           }
+           else{
+            alert(" Your Account Not Found \n Please Check You Detail Or Create New Account")
+           }
         }
+        
       })
      }
   }
