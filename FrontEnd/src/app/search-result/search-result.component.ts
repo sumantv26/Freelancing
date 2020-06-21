@@ -15,16 +15,14 @@ export class SearchResultComponent implements OnInit {
   constructor(private ds:DevdataService ,private interaction:SearchinteractionService) { }
 
   ngOnInit(): void {
-    this.category=localStorage.getItem("searchResult")
-    this.ds.GetDevData().subscribe((response)=>{
-      if(response.status=="ok")
-       response.data.forEach(element => {
-         if(this.category==element.category)
-         this.searchResult.push(element.name)
-       });
-      }
-        )
+    // this.category=localStorage.getItem("searchResult")
+    // this.ds.GetDevData().subscribe((response)=>{
+    //   if(response.status=="ok")
+    //    response.data.forEach(element => {
+    //      if(this.category==element.category)
+    //      this.searchResult.push(element.name)
+    //    });
+    //   }
+    //     )
   }
-
-
 }

@@ -17,11 +17,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signUP()
-  {   if(this.nameProp=="" && this.emailProp=="" && this.passwordProp==""){
-
-  }
-     else
+  signUP(){
+  if(this.nameProp!="" && this.emailProp!="" && this.passwordProp!="")
   { 
     this.ds.signIn()
     .subscribe((response)=>{
