@@ -1,3 +1,4 @@
+<app-header-of-deshboard></app-header-of-deshboard>
 <div class="greeting">
     <h2>Welcome <span>{{name}}</span></h2>
 
@@ -6,23 +7,58 @@
     <div class="two">
         <p class="p1">Put Your Details: </p>
           <form #f="ngForm" ngNativeValidate>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]="catagoryProp" [ngModelOptions]="{standalone: true}" placeholder="You are(ex. software developer)" id="name" required>
-            </div>
-            <div class="form-group">
-                <input type="number" class="form-control"  [(ngModel)]="experienceProp" [ngModelOptions]="{standalone: true}" placeholder="Year of experience you have" id="email" required>
-              </div>
-              <!-- <div class="form-group">
-                <input type="mobileNo" class="form-control" placeholder="Mobile Number" id="mobNo">
-              </div> -->
-            <div class="form-group">
-              <input type="text" [(ngModel)]="degreeProp" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="what is you collage degree(ex. BTech, MTech)" id="pwd" required>
-            </div>
-            <!-- <div class="form-group">
-                <input type="confirmPassword" class="form-control" placeholder="Confirm Password" id="confirmPwd">
-              </div> -->
-            <button type="submit" class="btn btn-success" (click)="save()" >Save</button>
+            <table>
+              <tr>
+       
+              <td><label for="category">Choose Category:</label></td>
+                  <td>
+                    <select  name="category" id="category" #cat>
+
+                      <option class="dropdown-item" value="fullstack">Fullstack Developer</option>
+                      <option value="android">Android Developer</option>
+                      <option value="apple">Apple Developer</option>
+                      <option value="software">Software Developer</option>
+                    </select>
+                  </td>
+             
+            
+          </tr>
+           <tr>
+             <td>
+              <label for="year">Year Of Experience:</label> 
+             </td>
+             <td>
+              <select  name="year" id="year" #exp>
+                <option value="1">1</option>
+                <option value="2" [value]="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="more than 5">More than 5 year</option>
+              </select>
+
+             </td>
+           </tr>
+
+           <tr>
+             <td><label for="degree">Which University Degree:</label> </td>
+             <td>
+              <select  name="degree" id="degree" #deg>
+              <option value="btech">Btech</option>
+              <option value="mtech">Mtech</option>
+              <option value="mba">MBA</option>
+              <option value="bsc">Bsc</option>
+              <option value="bca">Bca</option>
+  
+            </select>
+             </td>
+           </tr>
+              
+             
+            </table>
+            <button type="submit" class="btn btn-success" (click)="save(cat.value,exp.value,deg.value)" >Save</button>
           </form>
     </div>
 </div>
 
+<app-mainpage-footer></app-mainpage-footer>

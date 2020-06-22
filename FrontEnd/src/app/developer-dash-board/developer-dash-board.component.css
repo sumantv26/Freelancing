@@ -15,12 +15,13 @@
    
 }
 .two{
-    width: 550px;
+    width: 50%;
     height: 500px;
     background-color: white;
-    position: absolute;
+    position: relative;
     text-align: center;
     font-family: sans-serif;
+    align-items: center;
     font-size: 30px;
     top: 50%;
     left: 50%;
@@ -33,26 +34,32 @@
     width: 400px;
     background-color:#008329;
 }
-#name{
-    width: 400px;
-    margin-left: 75px;
-}
-#email{
-    width: 400px;
-    margin-left: 75px;
-}
-#mobNo{
-    width: 400px;
-    margin-left: 75px;
-}
-#pwd{
-    width: 400px;
-    margin-left: 75px;
-}
-#confirmPwd{
-    width: 400px;
-    margin-left: 75px;
-}
+
 .p2{
     margin-top: 100px;
+}
+
+label{
+    font-size: 25px;
+    padding-right: 20px;
+}
+
+#category,#year, #degree{
+    /* background-color: gray; */
+    font-size: 20px;
+    width: 400px;
+    height: 40px;
+    padding-left: 100px;
+    border: 1px solid gray;
+    outline: none;
+}
+table{  
+    width: 100%;
+    position: relative;
+    left: 50%;
+    height: 200px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    transform: translate(-50%);
+    text-align: center;
 }

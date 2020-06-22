@@ -8,15 +8,15 @@
             <div class="form-group">
                 <input type="email" class="form-control"  [(ngModel)]="emailProp" [ngModelOptions]="{standalone: true}" placeholder="Email" id="email" required>
               </div>
-              <!-- <div class="form-group">
-                <input type="mobileNo" class="form-control" placeholder="Mobile Number" id="mobNo">
-              </div> -->
+              <div class="form-group">
+                <input type="mobileNo" class="form-control"  [(ngModel)]="mobileNoProp" [ngModelOptions]="{standalone: true}" placeholder="Mobile Number" id="mobNo">
+              </div>
             <div class="form-group">
-              <input type="password" [(ngModel)]="passwordProp" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" id="pwd" required>
+              <input type="password" [(ngModel)]="passwordProp"  [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" id="pwd" required>
             </div>
-            <!-- <div class="form-group">
-                <input type="confirmPassword" class="form-control" placeholder="Confirm Password" id="confirmPwd">
-              </div> -->
+            <div class="form-group">
+                <input type="confirmPassword" class="form-control"  [(ngModel)]="confirmPassProp" [ngModelOptions]="{standalone: true}" placeholder="Confirm Password" id="confirmPwd">
+              </div>
             <button type="submit" class="btn btn-success" (click)="signUP()" >Register</button>
           </form>
     </div>

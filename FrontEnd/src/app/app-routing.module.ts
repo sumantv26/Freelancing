@@ -18,6 +18,7 @@ import { FindDevelopersComponent } from './find-developers/find-developers.compo
 import { WhoYouAreComponent } from './who-you-are/who-you-are.component';
 import { DeveloperDashBoardComponent } from './developer-dash-board/developer-dash-board.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { DevpofileComponent } from './devpofile/devpofile.component';
 
 
 const routes: Routes = [{path:'',component:MainPageComponent,
@@ -39,12 +40,11 @@ const routes: Routes = [{path:'',component:MainPageComponent,
                           {path:'freelancersBySkill',component:FreelancersBySkillComponent},
                           {path:'findDevelopers',component:FindDevelopersComponent},
                           {path:'who-you-are',component:WhoYouAreComponent},
-                         
-                          
                           ]
                           },
                           {path:'dev-dashboard',component:DeveloperDashBoardComponent},
-                          {path:'searchResult',component:SearchResultComponent}
+                          {path:'searchResult',component:SearchResultComponent},
+                          {path:'devprofile',component:DevpofileComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

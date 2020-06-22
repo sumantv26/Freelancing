@@ -1,0 +1,187 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+header{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+}
+.left-nav{
+}
+.logo{
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+.right-nav{
+    
+}
+
+ul li{
+    display: inline-block;
+    margin-left: 10px ;
+   color: gray;
+}
+.lnk{
+    transition: all .5s ease;
+    outline: none;
+}
+.lnk:hover{
+    box-shadow: 5px 5px 10px gray;
+    padding: 0px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: #018328;
+    cursor: pointer;
+    outline: none;
+}
+
+button{
+    font-family: 'Poppins', sans-serif;
+    background-color: #018328;
+    color: white;
+    padding: 5px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #888888;
+    outline: none;
+}
+button:hover{
+    box-shadow: 5px 5px 5px  gray;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.toggle-button{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    right: 10%;
+    top:30px;
+    width: 30px;
+    height: 20px;
+
+}
+
+.toggle-button .bar{
+    height: 4px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+@media all and (max-width:550px){
+    ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .toggle-button{
+        display: flex;
+    }
+    .right-nav{
+        width: 100%;
+    }
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  
+    ul li{
+        text-align: center;
+        padding: 10px;
+    }
+    ul.active{
+        display: flex;
+    }
+
+    .lnk:hover{
+        background-color: #018328;
+        padding: 10px;
+        color: white;
+    }
+
+}
+
+/* search bar */
+.search-input{
+   
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    top: 10%;
+    left: 5px;
+    color:#018328;
+}
+.search-input input{
+    padding-left: 25px;
+    border-radius: 50px;
+    border: 2px solid #018328;
+    outline: none;
+    width: 300px;
+}
+
+/*
+.left-nav{
+
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+   
+}
+.logo{
+    align-items: center;
+ 
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 10%;
+    
+}
+.right-nav{
+    background-color: hotpink;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+   
+}
+
+/* .header-links{
+    align-items: center;
+    background-color: aquamarine;
+    position: absolute;
+    box-sizing: border-box;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    right: 10%;
+   
+} 
+ul{
+    list-style-type: none;
+    align-items: center;
+   background-color: grey;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    right: 10%;
+    
+}
+ul li{
+    border:  1px solid blueviolet;
+  
+    padding:10px;
+    margin-left: 10px;
+   
+} */
+

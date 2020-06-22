@@ -1,8 +1,8 @@
 <div class="list-div">
     <ul *ngFor="let i of searchResult">
-    <li>
-        <h3>{{i}}</h3>
-        <h5>{{category}}</h5>
+    <li (click)="sendData(i.email)">
+        <h3>{{i.name}}</h3>
+        <h5>{{i.cat}}</h5>
     </li>
 </ul>
 </div>

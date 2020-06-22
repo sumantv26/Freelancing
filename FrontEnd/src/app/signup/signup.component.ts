@@ -8,21 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  acFound;
+  
   nameProp="";
   emailProp="";
   passwordProp="";
+  mobileNoProp="";
+  confirmPassProp="";
   constructor(private ds:DataService, private router:Router) { }
 
   ngOnInit(): void {
+   
   }
 
   signUP()
-  {   if(this.nameProp=="" && this.emailProp=="" && this.passwordProp==""){
+  { var acFound=false;
 
-  }
-     else
-  { 
     this.ds.signIn()
     .subscribe((response)=>{
       if(response.status=="ok")
@@ -30,30 +30,27 @@ export class SignupComponent implements OnInit {
 
         response.data.forEach(element => {
           if(element.email==this.emailProp){
-            
-            this.acFound=false
+        
+            console.log(element.email,this.emailProp)
+          acFound=true
           }
-          else{
-            this.acFound=true
-          }
+        
         });
       }
-      if(response.status=="failed" ||  this.acFound){
-        this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp})
-      .subscribe((response)=>{
-        if(response.status=="ok")
-        {
-            alert("Sign Up Successfull you will be redirected to sign in ");
-            this.router.navigate(['/signin']);
-        }
-       
-      })
-       }
-       else{
-        alert(" Your Account Is Already Created")
-       }
-      
+      if(acFound){
+        alert("Account Already Exist")
+      }
+      else{
+             this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp ,phone:this.mobileNoProp})
+        .subscribe((response)=>{
+          if(response.status=="ok")
+          {
+              alert("Sign Up Successfull you will be redirected to sign in ");
+              this.router.navigate(['/signin']);
+          }
+        })
+      }
     })
-  }
+  
 }
 }
