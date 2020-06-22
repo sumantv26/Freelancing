@@ -14,7 +14,7 @@ export class DevdataService {
   {
     return this.http.post(this.baseURL+"/dev", data);
   }
-  GetDevData(){
+  GetDevData():any{
     return this.http.get(this.baseURL+"/dev");
   }
 

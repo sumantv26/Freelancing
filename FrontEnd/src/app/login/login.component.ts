@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  acFound;
+  acFound=false;
   emailProp="";
   passwordProp="";
   constructor(private router:Router, private ds:DataService) { }
@@ -19,15 +19,13 @@ export class LoginComponent implements OnInit {
   }
 
   signin()
-  {
-     if(this.emailProp =="" && this.passwordProp==""){
-  
-
-     }
-     else{
+  { var acFound=false;
+     
+     if(this.emailProp !="" && this.passwordProp!=""){
       // {email:this.emailProp, password:this.passwordProp}
       this.ds.signIn()
       .subscribe((response)=>{
+       
         if(response.status=="ok")
         {
 
@@ -36,28 +34,21 @@ export class LoginComponent implements OnInit {
           // this.data=response.data[0].password
           response.data.forEach(element => {
             // this.details.push(element.name)
-            console.log(element.email,element.password)
+            // console.log(element.email,element.password)
             if(element.email==this.emailProp && element.password==this.passwordProp){
-              
-              this.acFound=true
+              acFound=true
               console.log(element.email, element.password)
               localStorage.setItem('email', element.email);
-            localStorage.setItem('name', element.name);
+              localStorage.setItem('name', element.name);
+              this.router.navigate(['/dev-dashboard']); 
               
             }
-            else{
-              this.acFound=false
-              // alert("account not found")
-            }
-          });
-          // this.router.navigate(['/dev-dashboard']); 
-
-          if(this.acFound){
-            this.router.navigate(['/dev-dashboard']); 
-           }
-           else{
-            alert(" Your Account Not Found \n Please Check You Detail Or Create New Account")
-           }
+          }
+          
+            );
+        }
+        if(acFound==false) {
+          alert("somthing went wrong")
         }
         
       })

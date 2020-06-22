@@ -10,10 +10,12 @@ import { DevdataService } from '../devdata.service';
 })
 export class DeveloperDashBoardComponent implements OnInit {
 
+  categoryList=['web','app']
+
   email="";
   name=""
-  catagoryProp=""
-  experienceProp=""
+  catagoryProp="";
+  experienceProp="";
   degreeProp=""
   constructor(private ds:DevdataService, private router:Router) { }
 
@@ -22,7 +24,10 @@ export class DeveloperDashBoardComponent implements OnInit {
     this.email=localStorage.getItem("email")
     this.name=localStorage.getItem("name")
   }
-  save(){
+  save(cat,exp,deg){
+    this.catagoryProp=cat
+    this.experienceProp=exp
+    this.degreeProp=deg
     {   if(this.name=="" && this.email=="" && this.catagoryProp=="" && this.experienceProp=="" && this.degreeProp==""){
 
     }
@@ -33,6 +38,7 @@ export class DeveloperDashBoardComponent implements OnInit {
           {
               alert("Data saved Successfull ");
               // this.router.navigate(['/signin']);
+              console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
           }
         })
     }}

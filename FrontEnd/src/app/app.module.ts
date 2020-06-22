@@ -26,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { WhoYouAreComponent } from './who-you-are/who-you-are.component';
 import { DeveloperDashBoardComponent } from './developer-dash-board/developer-dash-board.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { DevpofileComponent } from './devpofile/devpofile.component';
+import { HeaderOfDeshboardComponent } from './header-of-deshboard/header-of-deshboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import { SearchResultComponent } from './search-result/search-result.component';
     FindDevelopersComponent,
     WhoYouAreComponent,
     DeveloperDashBoardComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    DevpofileComponent,
+    HeaderOfDeshboardComponent
   ],
   imports: [
     BrowserModule,
