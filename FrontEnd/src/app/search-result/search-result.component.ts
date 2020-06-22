@@ -18,6 +18,7 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     this.category=localStorage.getItem("searchResult")
     var arr=this.category.split(" ")
     this.devs.GetDevData().subscribe((response)=>{
@@ -38,3 +39,4 @@ export class SearchResultComponent implements OnInit {
   }
 
 }
+

@@ -22,6 +22,7 @@ export class SignupComponent implements OnInit {
 
   signUP()
   { var acFound=false;
+
     this.ds.signIn()
     .subscribe((response)=>{
       if(response.status=="ok")
