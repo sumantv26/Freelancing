@@ -1,0 +1,26 @@
+.aboutHead{
+    width: 100%;
+    height: 80px;
+    background-color: #5BBC2E;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+.aboutDetails{
+    width: 100%;
+    height: 700px;
+    background-color: white;
+}
+.aboutDetails h1{
+    font-weight: bolder;
+    font-style:initial;
+    color: #1D4354;
+    margin-left: 35px;
+    margin-top: 60px;
+}
+.aboutDetails p{
+    font-style:initial;
+    color: black;
+    margin-left: 35px;
+    font-size: 20px;
+}
