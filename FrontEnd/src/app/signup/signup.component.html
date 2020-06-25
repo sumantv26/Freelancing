@@ -4,15 +4,28 @@
           <form #f="ngForm" ngNativeValidate>
             <div class="form-group">
               <input type="name" class="form-control" [(ngModel)]="nameProp" [ngModelOptions]="{standalone: true}" placeholder="FullName" id="name" required>
+             
             </div>
             <div class="form-group">
-                <input type="email" class="form-control"  [(ngModel)]="emailProp" [ngModelOptions]="{standalone: true}" placeholder="Email" id="email" required>
+                <input  #emailRef="ngModel" type="email" class="form-control"  [(ngModel)]="emailProp" [ngModelOptions]="{standalone: true}" placeholder="Email" id="email" required>
+                <span *ngIf="emailRef.touched && emailRef.invalid" > this is a required field </span>
               </div>
               <div class="form-group">
-                <input type="mobileNo" class="form-control"  [(ngModel)]="mobileNoProp" [ngModelOptions]="{standalone: true}" placeholder="Mobile Number" id="mobNo" required>
+                <input #mobileRef="ngModel" type="number" class="form-control"  [(ngModel)]="mobileNoProp" [ngModelOptions]="{standalone: true}" placeholder="Mobile Number" id="mobNo" required minlength="8">
+                <div *ngIf="mobileRef.errors">
+                <span *ngIf="mobileRef.touched && mobileRef.errors.required" > this a required field </span>
+                <span *ngIf="mobileRef.touched && mobileRef.errors.minlength" > minimum length should be 8 charcters </span>
+                </div>
               </div>
             <div class="form-group">
-              <input type="password" [(ngModel)]="passwordProp"  [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" id="pwd" required>
+              <input #passRef="ngModel"  type="password" [(ngModel)]="passwordProp"  [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" id="pwd" pattern="^[0-9a-z]{8,12}$" required minlength="8">
+              <div *ngIf="passRef.errors">
+
+                <span *ngIf="passRef.touched && passRef.errors.required" > this a required field </span>
+                <span *ngIf="passRef.touched && passRef.errors.minlength" > minimum length should be 8 charcters </span>
+                <span *ngIf="passRef.touched && passRef.errors.pattern" > min 8, max 12, numeric and small letter only </span>
+    
+            </div>
             </div>
             <div class="form-group">
                 <input type="confirmPassword" class="form-control"  [(ngModel)]="confirmPassProp" [ngModelOptions]="{standalone: true}" placeholder="Confirm Password" id="confirmPwd">
@@ -22,3 +35,36 @@
     </div>
 </div>
 
+
+
+<!-- 
+<form #f="ngForm">
+  <h2>Log In</h2>
+  <label>
+      <input #emailRef="ngModel" type="email" class="form-control" name="email"  [(ngModel)]="emailProp" [ngModelOptions]="{standalone: true}" placeholder="Username or Email" id="email" required>
+      <span *ngIf="emailRef.touched && emailRef.invalid" > this a required field </span>
+    </label>
+  <label>
+      <input  #passRef="ngModel" type="password" class="form-control" name="password"   [(ngModel)]="passwordProp" [ngModelOptions]="{standalone: true}" placeholder="Password" id="pwd" pattern="^[0-9a-z]{8,12}$" required minlength="8">
+      <div *ngIf="passRef.errors">
+
+          <span *ngIf="passRef.touched && passRef.errors.required" > this a required field </span>
+          <span *ngIf="passRef.touched && passRef.errors.minlength" > minimum length should be 8 charcters </span>
+          <span *ngIf="passRef.touched && passRef.errors.pattern" > min 8, max 12, numeric and small letter only </span>
+
+
+      </div>
+
+
+    </label>
+  <label>
+    <input type="checkbox"/><span>Remember me</span>
+  </label>
+  <div class="btn-sub">
+    <button (click)="login()" class="pink-btn">Log In</button>
+    <span>
+      <a href="#">Forget your password?</a>
+    </span>
+  </div>
+
+</form> -->

@@ -1,8 +1,97 @@
+<app-mainpage-header></app-mainpage-header>
 
-<div>
+<div class="main-div">
+    <div class="center-div">
+        <div class="title-div">
+            
+           <div class="img-div">
+            <img src="../../assets/male_avatar.png" alt="">
+           </div>
+           <div class="name-div">
+            <h3>{{nameProp}}</h3>
+            <h4>{{locProp}}</h4>
+
+           </div>
+
+        </div>
+        <div class="center-bottom">
+            <div class="left-div">
+                <h4>Stats</h4>
+                <div class="stats">
+                    <div class="row">
+                        <div class="col">
+                            <h5>0k</h5>
+                            <p>total earning</p>
+                        </div>
+                        <div class="col">
+                            <h5>0</h5>
+                            <p>Total Jobs</p>
+                        </div>
+                        <div class="col">
+                            <h5>0</h5>
+                            <p>Total hour</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="available">
+                    <h4>Availability</h4>
+                    <h5>Available</h5>
+                    <p>More than 30 hrs/week <br>
+                        < 24 hrs response time</p>
+                </div>
+                
+            </div>
+        <div class="part-hr"></div>
+            <div class="right-div">
+                <div class="right-div-title">
+                    <h1>{{categoryProp}}</h1>
+                    <h3>{{rateProp}} /hour</h3>
+                </div>
+                <hr>
+                <div class="discription">
+                    <p>{{disProp}}</p>
+                </div>
+                <div class="education">
+                    <h4>Education</h4>
+                    <h5>University: {{UnameProp}}</h5>
+                    <h5>Degree: {{degreeProp}}</h5>
+                </div>
+                <div class="skills">
+                    <h4>Skills</h4>
+                    <ul *ngFor="let i of skillsArr;">
+                        <li> {{i}}</li>
+                    </ul>
+                </div>
+                <h4 id="contact-text">Contact & Social media</h4>
+                <div class="contact">
+                   
+                    <a [href]="instaUrl" class="ainsta">  <div class="insta"> <i class="fa fa-instagram" aria-hidden="true"></i></div> </a>
+                    <a [href]="facebookUrl">  <div class="facebook"> <i class="fa fa-facebook" aria-hidden="true"></i></div> </a>
+                    <a [href]="twitterUrl">  <div class="twitter"> <i class="fa fa-twitter " aria-hidden="true"></i></div> </a>
+                </div>
+               
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- <div>
 <h1>Name: {{nameProp}}</h1>
 <h2>email: {{emailProp}}</h2>
 <h3>Category: {{categoryProp}}</h3>
 <h3>Experience: {{experienceProp}}</h3>
 <h3>Degree:{{degreeProp}}</h3>
-</div>
+<h3>rate:{{rateProp}}</h3>
+<h3>Language:{{lanProp}}</h3>
+<h3>Location:{{locProp}}</h3>
+<h3>Title:{{titleProp}}</h3>
+<h3>Discription:{{disProp}}</h3>
+</div> -->
+<!-- </div> -->

@@ -11,12 +11,26 @@ import { DevdataService } from '../devdata.service';
 export class DeveloperDashBoardComponent implements OnInit {
 
   categoryList=['web','app']
-
+  variable;
   email="";
   name=""
   catagoryProp="";
   experienceProp="";
   degreeProp=""
+  rateProp;
+  locProp;
+  lanProp;
+  titleProp;
+  disProp;
+  UnameProp;
+  skillsProp;
+
+// url
+facebookUrl="https://www.facebook.com/";
+instaUrl="https://www.instagram.com/";
+twitterUrl="https://twitter.com/";
+
+found=false;
   constructor(private ds:DevdataService, private router:Router) { }
 
 
@@ -24,25 +38,84 @@ export class DeveloperDashBoardComponent implements OnInit {
     this.email=localStorage.getItem("email")
     this.name=localStorage.getItem("name")
   }
-  save(cat,exp,deg){
+  save(cat,exp,uname,deg,skills,rate,loc,lan,title,dis){
+    var found=false;
+
     this.catagoryProp=cat
     this.experienceProp=exp
     this.degreeProp=deg
-    {   if(this.name=="" && this.email=="" && this.catagoryProp=="" && this.experienceProp=="" && this.degreeProp==""){
+    this.rateProp=rate
+    this.locProp=loc
+    this.lanProp=lan
+    this.titleProp=title
+    this.disProp=dis
+    this.UnameProp=uname
 
-    }
-       else
-    { this.ds.save({name:this.name, email:this.email, category:this.catagoryProp,experience:this.experienceProp, degree:this.degreeProp})
-        .subscribe((response)=>{
-          if(response.status=="ok")
-          {
-              alert("Data saved Successfull ");
-              // this.router.navigate(['/signin']);
-              console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
+    var skillsArray=skills.split(",")
+    console.log(skillsArray)
+   if(this.email!=""){
+      console.log("in if")
+          this.ds.GetDevData().subscribe(res=>{
+            if(res.status=="ok"){
+            res.data.forEach(element => {
+              console.log(element.email,this.email)
+              if(element.email==this.email){
+                console.log(element.email)
+                found=true
+              }
+            });
+            console.log(found,res.status)
+            this.insertData(found,res,skillsArray)
           }
-        })
-    }}
+          else
+         {
+          this.insertData(found,res,skillsArray)
+         }
+          })
+
+          // console.log(found)
+   
+    }
   }
-  
+
+  insertData(found,res,skillsArray){
+    if(found  && res.status=="ok"){
+      alert("you already gave your data ")
+    }
+    else {
+      this.ds.save({name:this.name, 
+        email:this.email, 
+        category:this.catagoryProp,
+        experience:this.experienceProp, 
+        university:this.UnameProp,
+        degree:this.degreeProp,
+        skills: skillsArray,
+        rate:this.rateProp,
+        location:this.locProp,
+        language:this.lanProp,
+        title:this.titleProp,
+        discription:this.disProp,
+        facebookUrl:this.facebookUrl,
+        instaUrl:this.instaUrl,
+        twitterUrl:this.twitterUrl
+
+        
+      })
+      .subscribe((response)=>{
+        if(response.status=="ok")
+        {
+            // alert("Data saved Successfull You will redirect to home in 3 seconds");
+            // 
+        
+            this.variable="Data saved Successfull You will redirect to home in 3 seconds"
+            setTimeout(() => {
+              this.router.navigate(['/mainpage/home']);
+            }, 3000);
+            console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
+        }
+      }) 
+    }
+  }
 
 }
+

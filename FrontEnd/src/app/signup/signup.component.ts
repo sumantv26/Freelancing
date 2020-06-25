@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
 
   signUP()
   { var acFound=false;
-
+    if(this.nameProp!="" && this.emailProp!="" && this.passwordProp!="" && this.mobileNoProp!=""){
     this.ds.signIn()
     .subscribe((response)=>{
       if(response.status=="ok")
@@ -46,11 +46,15 @@ export class SignupComponent implements OnInit {
           if(response.status=="ok")
           {
               alert("Sign Up Successfull you will be redirected to sign in ");
-              this.router.navigate(['/signin']);
+              this.router.navigate(['/mainpage/signin']);
           }
         })
       }
     })
+  }
+  else{
+    alert("fill all filds!")
+  }
   
 }
 }
