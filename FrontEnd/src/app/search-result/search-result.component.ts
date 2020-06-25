@@ -44,10 +44,10 @@ export class SearchResultComponent implements OnInit {
        });
 
         if(found){
-          this.text="you all get it"
+          this.text="No more data "
         }
         else{
-          this.text="Not Found"
+          this.text="Not Data Found"
         }
       }
         )

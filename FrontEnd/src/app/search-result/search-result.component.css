@@ -1,15 +1,110 @@
+.searchHeader{
+    position: relative;
+    height: 90vh;
 
+    overflow-y: scroll;
+
+} 
+
+.list-div{
+    /* background-color: aqua; */
+    top: 10%;
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+
+img{
+    height: 90px;
+    width: 80px;
+
+}
+.lst{
+    display: flex;
+}
+.icon{
+    position: relative;
+    left: 10px;
+    top: 10px;
+    color: green;
+}
+.info{
+    margin-left: 30px;
+}
+li{
+    height: 120px;
+    box-shadow: 0 0 5px gray;
+}
+ 
+.notfound-text{
+    text-align: center;
+    /* background-color: aqua; */
+}
+.notfound-text h2{
+   color: red;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /* .searchHeader{ */
+    /* width: 100%; */
+    /* height: 100%;
+    background-color: #F2F2F2;
+} */
+/* .searchHead{
+    position: relative;
+    width: 50%;
+    height: 500px;
+    background-color: white;
+    font-size: 40px;
+    /* top: 80px; */
+    /* left: 10%; */
+/* }  */
+/* .list-div{
+    
+} */
+
+/* <<<<<<< HEAD
 .list-div{
     position: absolute;
     left: 50%;
     top: 5%;
     transform: translateX(-50%);
-}
-ul li{
-    height: 100px;
+}*/
+/* ul li{
+    height: 100%;
     width: 200px;
     background-color: white;
-    box-shadow: 0px 0px 20px 2px gray;
-    text-align: center;
-    list-style: none;
+    box-shadow: 0px 0px 20px 2px gray; 
+
 }
+.searchHead h1{
+
+    text-align: center;
+}
+
+.imgBelowListDiv{
+    width: 80px;
+    height: 80px;
+} */
+
+ /* .list-div ul ul h2{
+     color: #008329;
+}
+.ulul{
+    position: relative;
+    left: 60px;
+    top: -80px;
+} */
+/* .btn{
+    width: 10px;
+    height: 3px;
+    background-color: #318329;
+} */  

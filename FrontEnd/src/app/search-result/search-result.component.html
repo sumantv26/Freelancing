@@ -1,12 +1,25 @@
 
-<div class="list-div">
-    <ul *ngFor="let i of searchResult">
-    <li (click)="sendData(i.email)">
-        <h3>{{i.name}}</h3>
-        <h5>{{i.cat}}</h5>
-    </li>
-</ul>
-    <h1 [innerHTML]="text"></h1>
+<app-search-result-header></app-search-result-header>
+<div class="searchHeader">
+   <!-- <div class="searchHead"> -->
+    <!-- <h1>Find the right Full Stack Development <br> experts for your project, right now.</h1> -->
+    <!-- <hr> -->
+        <div class="list-div">
+            <ul *ngFor="let i of searchResult">
+                <li class="lst" (click)="sendData(i.email)">
+                    <div class="icon"><img  class="imgBelowListDiv" src="../../assets/usericon.png" alt=""></div>
+                    <div class="info">
+                        <h2>{{i.name}}</h2>
+                        <h5>{{i.cat}}</h5>
+                        <button type="submit" class="btn btn-success">View profile</button>
+                    </div>
+                   
+                </li>
+                <hr>
+            </ul>
+            <div class="notfound-text"><h2>{{text}}</h2></div>
+        </div>
+    <!-- </div> -->
 </div>
-
-
+<app-mainpage-footer></app-mainpage-footer>
+<!-- <img  class="imgBelowListDiv" src="../../assets/usericon.png" alt=""> -->
