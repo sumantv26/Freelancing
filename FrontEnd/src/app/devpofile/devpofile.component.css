@@ -1,20 +1,28 @@
-/* 
 *{
-    height: 1000px;
-    width: 100%;
-    padding: 0;
-    background-color: blue;
-    margin: 0;
-
-} */
+   
+}
+.main-location{
+    display: flex;
+}
+.locicon{
+    color: green;
+padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+   /* margin: 10px; */
+}
 
 .main-div{
+    font-family: 'Poppins', sans-serif;
     position: relative;
     height: 800px;
     /* background-color: blue; */
 }
 .center-div{
+    font-family: 'Poppins', sans-serif;
     /* background-color: aqua; */
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 80%;
     height: 100%;
     position: absolute;
@@ -89,6 +97,7 @@
 }
 .contact{
     display: flex;
+    font-family: 'Open Sans', sans-serif
 }
 
 .insta,.facebook,.twitter{
@@ -97,10 +106,12 @@
     box-shadow: 0 0 10px gray;
     border-radius: 30%;
     margin-left: 20px;
+   
     /* text-align: center; */
 }
 .fa-instagram{
-    color:orange
+    color:orange;
+    
 }
 .fa-facebook{
     color:#3b5998
@@ -114,6 +125,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    
 }
 #contact-text{
     padding-left: 50px;
@@ -121,4 +133,8 @@
 }
 .contact{
     padding-left: 20px;
+    
+}
+.btn{
+    background-color: green;
 }
