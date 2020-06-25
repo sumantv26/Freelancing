@@ -39,3 +39,7 @@
     top:-540px;
     text-align: center;
 }
+p{
+    outline: none;
+    cursor: pointer;
+}

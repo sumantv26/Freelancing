@@ -81,6 +81,7 @@ found=false;
   insertData(found,res,skillsArray){
     if(found  && res.status=="ok"){
       alert("you already gave your data ")
+      this.router.navigate(['/mainpage/home']);
     }
     else {
       this.ds.save({name:this.name, 
