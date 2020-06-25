@@ -25,6 +25,8 @@ export class DevpofileComponent implements OnInit {
   facebookUrl;
   twitterUrl;
 
+  price;
+  hours;
   
   constructor(private devs:DevdataService) { }
 
@@ -60,5 +62,7 @@ export class DevpofileComponent implements OnInit {
     console.log(this.nameProp)
   }
 
-
+    addMoney(){
+      // this.devs.save()
+    }
 }
