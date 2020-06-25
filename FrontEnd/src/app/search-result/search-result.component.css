@@ -3,6 +3,7 @@
     position: absolute;
     left: 50%;
     top: 5%;
+    transform: translateX(-50%);
 }
 ul li{
     height: 100px;

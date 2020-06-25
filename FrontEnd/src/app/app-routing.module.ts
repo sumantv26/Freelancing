@@ -19,9 +19,11 @@ import { WhoYouAreComponent } from './who-you-are/who-you-are.component';
 import { DeveloperDashBoardComponent } from './developer-dash-board/developer-dash-board.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { DevpofileComponent } from './devpofile/devpofile.component';
+import { LodingScreenComponent } from './loding-screen/loding-screen.component';
 
 
-const routes: Routes = [{path:'',component:MainPageComponent,
+const routes: Routes = [{path:"",component:LodingScreenComponent},
+                            {path:"mainpage",component:MainPageComponent,
                           children:[{path:'',component:MainpageHomeComponent},
                           {path:'home',component:MainpageHomeComponent,children:[
             

@@ -1,3 +1,4 @@
+
 <div class="list-div">
     <ul *ngFor="let i of searchResult">
     <li (click)="sendData(i.email)">
@@ -5,6 +6,7 @@
         <h5>{{i.cat}}</h5>
     </li>
 </ul>
+    <h1 [innerHTML]="text"></h1>
 </div>
 
 

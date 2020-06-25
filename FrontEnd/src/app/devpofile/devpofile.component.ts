@@ -12,6 +12,19 @@ export class DevpofileComponent implements OnInit {
   categoryProp;
   experienceProp;
   degreeProp;
+  rateProp;
+  locProp;
+  lanProp;
+  titleProp;
+  disProp;
+
+  UnameProp;
+  skillsArr;
+
+  instaUrl="";
+  facebookUrl;
+  twitterUrl;
+
   
   constructor(private devs:DevdataService) { }
 
@@ -22,15 +35,29 @@ export class DevpofileComponent implements OnInit {
         res.data.forEach(element => {
           if(element.email==email){
             this.emailProp=element.email;
-            this.nameProp=element.name;
-            this.experienceProp=element.experience;
+            this.nameProp=element.name[0].toUpperCase()+element.name.slice(1);
+            this.experienceProp=element.experience+" year";
             this.degreeProp=element.degree;
-            this.categoryProp=element.category;
+            this.categoryProp=element.category[0].toUpperCase()+element.category.slice(1)+ " Developer";
+
+            this.rateProp=element.rate+" $"
+            this.locProp=element.location[0].toUpperCase()+element.location.slice(1)
+            this.lanProp=element.language[0].toUpperCase()+element.language.slice(1)
+            this.titleProp=element.title
+            this.disProp=element.discription[0].toUpperCase()+element.discription.slice(1)
+            this.UnameProp=element.university
+            this.skillsArr=element.skills
+
+            this.instaUrl=element.instaUrl
+            this.facebookUrl=element.facebookUrl
+            
+            this.twitterUrl=element.twitterUrl
             console.log(this.emailProp,this.nameProp,this.experienceProp,this.degreeProp,this.categoryProp)
           }
         });
       }
     })
+    console.log(this.nameProp)
   }
 
 

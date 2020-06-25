@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
 
   signUP()
   { var acFound=false;
-
+    if(this.nameProp!="" && this.emailProp!="" && this.passwordProp!="" && this.mobileNoProp!=""){
     this.ds.signIn()
     .subscribe((response)=>{
       if(response.status=="ok")
@@ -51,6 +51,10 @@ export class SignupComponent implements OnInit {
         })
       }
     })
+  }
+  else{
+    alert("fill all filds!")
+  }
   
 }
 }

@@ -2,6 +2,8 @@
 <div class="greeting">
     <h2>Welcome <span>{{name}}</span></h2>
 
+   
+
 </div>
 <div class="one">
     <div class="two">
@@ -41,7 +43,12 @@
            </tr>
 
            <tr>
-             <td><label for="degree">Which University Degree:</label> </td>
+            <td><label for="university">University Name:</label> </td>
+            <td><input type="text" id="university" #uname></td>
+           </tr>
+           <tr>
+             <td><label for="degree">Degree:</label> </td>
+            
              <td>
               <select  name="degree" id="degree" #deg>
               <option value="btech">Btech</option>
@@ -53,10 +60,74 @@
             </select>
              </td>
            </tr>
-              
+           <tr>
+            <td><label for="skills">Skills You have:</label> </td>
+            <td><textarea name="skills" id="skills" cols="10" rows="3" #skills placeholder="type multiple skills by giving comma(',')"></textarea></td>
+           </tr>
+           <tr>
+             <td>
+               <label for="charge"> $ Hourly Rate: </label>
+             </td>
+             <td>
+               <input type="number" name="" id="charge" #rate required>
+             </td>
+           </tr>
+           <tr>
+            <td>
+              <label for="location">Location:</label>
+            </td>
+            <td>
+              <input type="text" name="" id="location" #loc required>
+            </td>
+          </tr>
+          <tr>
+          <td><label for="lang">Communication Language :</label> </td>
+         
+          <td>
+           <select  name="lang" id="lang" #lan>
+           <option value="english">English</option>
+           <option value="hindi">Hindi</option>
+           <option value="urdu">Urdu</option>
+           <option value="panjabi">Panjabi</option>
+          
+
+         </select>
+          </td>
+        </tr>
+        <tr>
+          <td><h3 style="margin-top: 50px; color: green;">Title & Discription</h3></td>
+        </tr>
+        <tr>
+          <td><label for="title">Title:</label></td>
+          <td><input type="text" #title></td>
+      </tr>
+      <tr>
+        <td><label for="discription">Discription:</label></td>
+        <td><textarea name="discription" id="discription" cols="20" rows="5" #dis></textarea></td>
+    </tr>
+
+    <tr>
+      <td><h3 style="margin-top: 50px; color: green;">Social Media Accounts </h3></td>
+    </tr>
+    <tr>
+      <td><label for="title">Facebook:</label></td>
+      <td><input type="text"  [(ngModel)]="facebookUrl" [ngModelOptions]="{standalone: true}" placeholder="link of your facebook profile"></td>
+  </tr>
+  <tr>
+    <td><label for="title">Instagram:</label></td>
+    <td><input type="text" [(ngModel)]="instaUrl" [ngModelOptions]="{standalone: true}" placeholder="link of your insta profile"></td>
+</tr>
+<tr>
+  <td><label for="title">Twitter:</label></td>
+  <td><input type="text" #title [(ngModel)]="twitterUrl" [ngModelOptions]="{standalone: true}" placeholder="link of your twitter profile"></td>
+</tr>
+  
              
             </table>
-            <button type="submit" class="btn btn-success" (click)="save(cat.value,exp.value,deg.value)" >Save</button>
+          
+            <h5 id="alerttext" [innerHTML]="variable"></h5>
+            <button type="submit" class="btn btn-success" (click)="save(cat.value,exp.value,uname.value,deg.value,skills.value,rate.value,loc.value,lan.value,title.value,dis.value)" >Save</button>
+            
           </form>
     </div>
 </div>
