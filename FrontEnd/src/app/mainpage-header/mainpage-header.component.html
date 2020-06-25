@@ -1,6 +1,6 @@
 <header>
     <div class="left-nav">
-        <div class="logo" routerLink="/home">
+        <div class="logo" routerLink="/mainpage/home">
             <h2><span>Free</span><span style="color: #018328;">lancing</span></h2>
         </div>
     </div>
@@ -8,7 +8,7 @@
     <div class="search-input">
             <input type="text" #box (keyup.enter)="check(box.value)">
        <div class="search-icon">
-        <i class="material-icons">search</i>
+        <i class="fa fa-search"></i>
        </div>
       
     </div>
@@ -21,10 +21,10 @@
         </div>
     
             <ul class="item">
-                <li class="lnk" routerLink="/home">HOME</li>
-                <li class="lnk" routerLink="/contact">CONTACT</li>
-                <li class="lnk" routerLink="/signin">SIGN IN</li>
-                <li ><button  routerLink="/signup">SIGN UP</button></li>
+                <li class="lnk" routerLink="/mainpage/home">HOME</li>
+                <li class="lnk" routerLink="/mainpage/contact">CONTACT</li>
+                <li class="lnk" routerLink="/mainpage/signin">SIGN IN</li>
+                <li ><button  routerLink="/mainpage/signup">SIGN UP</button></li>
             </ul>
     </div>
 </header>

@@ -28,6 +28,8 @@ import { DeveloperDashBoardComponent } from './developer-dash-board/developer-da
 import { SearchResultComponent } from './search-result/search-result.component';
 import { DevpofileComponent } from './devpofile/devpofile.component';
 import { HeaderOfDeshboardComponent } from './header-of-deshboard/header-of-deshboard.component';
+import { LodingScreenComponent } from './loding-screen/loding-screen.component';
+import { SearchResultHeaderComponent } from './search-result-header/search-result-header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,9 @@ import { HeaderOfDeshboardComponent } from './header-of-deshboard/header-of-desh
     DeveloperDashBoardComponent,
     SearchResultComponent,
     DevpofileComponent,
-    HeaderOfDeshboardComponent
+    HeaderOfDeshboardComponent,
+    LodingScreenComponent,
+    SearchResultHeaderComponent
   ],
   imports: [
     BrowserModule,

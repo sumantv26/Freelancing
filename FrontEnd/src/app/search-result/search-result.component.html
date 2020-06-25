@@ -1,16 +1,25 @@
+
+<app-search-result-header></app-search-result-header>
 <div class="searchHeader">
-   <div class="searchHead">
-    <h1>Find the right Full Stack Development <br> experts for your project, right now.</h1>
-    <hr>
+   <!-- <div class="searchHead"> -->
+    <!-- <h1>Find the right Full Stack Development <br> experts for your project, right now.</h1> -->
+    <!-- <hr> -->
         <div class="list-div">
             <ul *ngFor="let i of searchResult">
-                <img  class="imgBelowListDiv" src="../../assets/usericon.png" alt="">
-                <ul class="ulul" (click)="sendData(i.email)">
-                    <h2>{{i.name}}</h2>
-                    <h5>{{i.cat}}</h5>
-                    <button type="submit" class="btn btn-success">View profile</button>
-                </ul><hr>
+                <li class="lst" (click)="sendData(i.email)">
+                    <div class="icon"><img  class="imgBelowListDiv" src="../../assets/usericon.png" alt=""></div>
+                    <div class="info">
+                        <h2>{{i.name}}</h2>
+                        <h5>{{i.cat}}</h5>
+                        <button type="submit" class="btn btn-success">View profile</button>
+                    </div>
+                   
+                </li>
+                <hr>
             </ul>
+            <div class="notfound-text"><h2>{{text}}</h2></div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>
+<app-mainpage-footer></app-mainpage-footer>
+<!-- <img  class="imgBelowListDiv" src="../../assets/usericon.png" alt=""> -->
