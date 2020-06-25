@@ -109,7 +109,7 @@ found=false;
         
             this.variable="Data saved Successfull You will redirect to home in 3 seconds"
             setTimeout(() => {
-              // this.router.navigate(['/mainpage/home']);
+              this.router.navigate(['/mainpage/home']);
             }, 3000);
             console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
         }
