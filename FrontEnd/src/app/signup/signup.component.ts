@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
       if(acFound){
         alert("Account Already Exist")
       }
-      else{
+      else if(this.passwordProp==this.confirmPassProp){
              this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp ,phone:this.mobileNoProp})
         .subscribe((response)=>{
           if(response.status=="ok")
@@ -49,6 +49,9 @@ export class SignupComponent implements OnInit {
               this.router.navigate(['/mainpage/signin']);
           }
         })
+      }
+      else{
+        alert("confirmed password not matched!")
       }
     })
   }

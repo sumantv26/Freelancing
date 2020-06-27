@@ -140,7 +140,7 @@ found=false;
   insertData(found,res,skillsArray){
     if(found  && res.status=="ok"){
       alert("you already gave your data ")
-      // this.router.navigate(['/mainpage/home']);
+      this.router.navigate(['/mainpage/home']);
     }
     else {
       this.ds.save({
@@ -170,7 +170,7 @@ found=false;
         
             this.variable="Data saved Successfull You will redirect to home in 3 seconds"
             setTimeout(() => {
-              // this.router.navigate(['/mainpage/home']);
+              this.router.navigate(['/mainpage/home']);
             }, 3000);
             console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
         }
