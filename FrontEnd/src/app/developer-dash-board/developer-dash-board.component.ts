@@ -52,51 +52,64 @@ found=false;
     // {
     //   form.append("gallery",this.gallery[i], this.gallery[i]['name']);
     // }
-    form.set('name', name);
-    form.set('profile', this.profile);
+    form.set('name', name);   
+    form.set('category', cat);
+    form.set('experience', exp);
+    form.set('university', uname);
+    form.set('skills', skills.split(","));
+    form.set('rate', rate);
+    form.set('location', loc);
+    form.set('language', lan);
+    form.set('title', title);    
+    form.set('discription',dis);
+    form.set('facebookUrl', this.facebookUrl);
+    form.set('instaUrl', this.instaUrl);
+    form.set('twitterUrl', this.twitterUrl);
     form.set('email', this.email);
+    form.set('profile', this.profile);
+    
     
     this.ds.uploadImg(form).subscribe((d)=>{alert(JSON.stringify(d))});
 
 
 
-    var found=false;
+  //   var found=false;
 
-    this.catagoryProp=cat
-    this.experienceProp=exp
-    this.degreeProp=deg
-    this.rateProp=rate
-    this.locProp=loc
-    this.lanProp=lan
-    this.titleProp=title
-    this.disProp=dis
-    this.UnameProp=uname
+  //   this.catagoryProp=cat
+  //   this.experienceProp=exp
+  //   this.degreeProp=deg
+  //   this.rateProp=rate
+  //   this.locProp=loc
+  //   this.lanProp=lan
+  //   this.titleProp=title
+  //   this.disProp=dis
+  //   this.UnameProp=uname
 
-    var skillsArray=skills.split(",")
-    console.log(skillsArray)
-   if(this.email!=""){
-      console.log("in if")
-          this.ds.GetDevData().subscribe(res=>{
-            if(res.status=="ok"){
-            res.data.forEach(element => {
-              console.log(element.email,this.email)
-              if(element.email==this.email){
-                console.log(element.email)
-                found=true
-              }
-            });
-            console.log(found,res.status)
-            this.insertData(found,res,skillsArray)
-          }
-          else
-         {
-          this.insertData(found,res,skillsArray)
-         }
-          })
+  //   var skillsArray=skills.split(",")
+  //   console.log(skillsArray)
+  //  if(this.email!=""){
+  //     console.log("in if")
+  //         this.ds.GetDevData().subscribe(res=>{
+  //           if(res.status=="ok"){
+  //           res.data.forEach(element => {
+  //             console.log(element.email,this.email)
+  //             if(element.email==this.email){
+  //               console.log(element.email)
+  //               found=true
+  //             }
+  //           });
+  //           console.log(found,res.status)
+  //           this.insertData(found,res,skillsArray)
+  //         }
+  //         else
+  //        {
+  //         this.insertData(found,res,skillsArray)
+  //        }
+  //         })
 
           // console.log(found)
    
-    }
+    // }
   }
 
   insertData(found,res,skillsArray){

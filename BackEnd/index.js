@@ -4,6 +4,7 @@ const cors  = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const multer = require('multer');
+const path = require('path');
 
 
 
@@ -33,6 +34,7 @@ const app = express();
 
 
 app.use(cors());
+app.use(express.static(path.join(__dirname,'uploads')));
 
 
 
@@ -42,42 +44,70 @@ var storage = multer.diskStorage({
       cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-      console.log(file);
-      cb(null, req.genId+"_"+file.fieldname+"_"+req[file.fieldname+'Ctr']++ +".jpg");
+
+
+        const collection = connection.db('Developer').collection('devdata');
+        collection.find({email:req.body.email}).toArray((err,docs)=>{
+
+            if(!err && docs.length>0)
+            {
+                req.isAlreadyExist =true;
+                cb(null, "temp.jpg");
+            }
+            else{
+                req.isAlreadyExist =false;
+                const collection = connection.db('Developer').collection('devdata');
+
+
+                collection.insert(req.body, (err,result)=>{
+                    if(!err)
+                    {
+                  
+                            req.genId=result.insertedIds['0'];
+                            req.isInsertedSuccess = true;
+                            cb(null, req.genId+"_"+file.fieldname+".jpg");
+
+
+                    }
+                    else{
+                            req.isInsertedSuccess = false;
+                            cb(null, "temp.jpg");
+                    }
+                })
+
+
+            }
+        })
+
 
     }
   })
+ 
   
   var upload = multer({ storage: storage })
 
-  app.post('/images',    (req,res,next)=>{ 
-                              
-    req.genId=req.body.email; 
-    req['galleryCtr']=1;
-    req['profileCtr']=1; 
 
-    next(); },
+  app.post('/images',  upload.single('profile'), 
+                      (req,res)=>{  console.log("in last",);  
+                      
+                      if(req.isAlreadyExist)
+                      {
 
+                          res.send({status:'failed', data:"already exist"})
+                          
+                      }
+                      else {
+                          res.send({status:"ok"})
 
-  upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'gallery', maxCount: 8 }]),
-  (req,res)=>{  console.log("in last",);    res.send({status:"ok"})
+                      } 
 }
 )
 
 
-app.post('/images', 
-(req,res,next)=>{ 
-  
-  req.genId="hh"; 
-  req['galleryCtr']=1;
-  req['profileCtr']=1; 
-
-  next(); },
 
 
-upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'gallery', maxCount: 8 }]),
-(req,res)=>{  console.log("in last");    res.send({status:"ok"})
-});
+
+
 
 
 app.post('/sign-up', bodyParser.json() ,(req,res)=>{  
