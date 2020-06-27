@@ -5,7 +5,7 @@
         <div class="title-div">
             
            <div class="img-div">
-            <img src="../../assets/male_avatar.png" alt="">
+            <img [src]="imgSource" alt="">
            </div>
            <div class="name-div">
             <h3>{{nameProp}}</h3>
@@ -41,25 +41,29 @@
                     <p>More than 30 hrs/week <br>
                         < 24 hrs response time</p>
                 </div>
-                <!-- <div class="payment">
-                    <h3>Pay</h3>
+                <div class="send-email">
+                    <h4>Send Email</h4>
                     <form #f=ngForm class="">
                         <div class="form-group">
-                            <label for="hour">Hour of work: </label>
-                            <input type="number" class="form-control" [(ngModel)]="hours" [ngModelOptions]="{standalone: true}" placeholder="Enter Hours of work" id="email">           
+                            <label for="email">Your Email: </label>
+                            <input type="email" class="form-control" [(ngModel)]="clientemail" [ngModelOptions]="{standalone: true}" placeholder="Enter your email" id="email">           
                         </div>
                        <div class="form-group">
-                        <label for="price">Price: </label>
-                        <input type="number" class="form-control" [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="Price to pay" id="email">
+                        <label for="emailsubject">Email Subject: </label>
+                        <input type="text" class="form-control" [(ngModel)]="emailsubject" [ngModelOptions]="{standalone: true}" placeholder="Write Subject" id="emailsubject">
                        </div>
-                       <button type="submit" class="btn btn-primary " (click)=addMoney()>Submit</button>
+                       <div class="form-group">
+                        <label for="emailcontent">Email Content: </label>
+                        <input type="text" class="form-control" [(ngModel)]="emailcontent" [ngModelOptions]="{standalone: true}" placeholder="Body of email" id="emailcontent">
+                       </div>
+                       <button type="submit" class="btn btn-primary " (click)=sendEmail()>Submit</button>
                     </form>
-                </div> -->
+                </div>
             </div>
         <div class="part-hr"></div>
             <div class="right-div">
                 <div class="right-div-title">
-                    <h1>{{categoryProp}}</h1>
+                    <h1>{{titleProp}}</h1>
                     <h3>{{rateProp}} /hour</h3>
                 </div>
                 <hr>

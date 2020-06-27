@@ -18,4 +18,12 @@ export class DevdataService {
     return this.http.get(this.baseURL+"/dev");
   }
 
+  uploadImg(data):any{
+    return this.http.post(this.baseURL+"/images",data);
+  }
+
+  sendMail(data):any{
+    return this.http.post(this.baseURL+"/sendmail",data)
+  }
+
 }

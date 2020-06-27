@@ -10,6 +10,11 @@
         <p class="p1">Put Your Details: </p>
           <form #f="ngForm" ngNativeValidate>
             <table>
+
+              <tr>
+                <td><label for="avatar">profile pic:</label></td>
+                <td><input type="file" name="avatar" id="avatar" (change)="getProfile($event)"></td>
+              </tr>
               <tr>
        
               <td><label for="category">Choose Category:</label></td>
@@ -125,7 +130,7 @@
              
             </table>
           
-            <h5 id="alerttext" [innerHTML]="variable"></h5>
+            <h5 id="alerttext" [style.color]="variableColor"  [innerHTML]="variable"></h5>
             <button type="submit" class="btn btn-success" (click)="save(cat.value,exp.value,uname.value,deg.value,skills.value,rate.value,loc.value,lan.value,title.value,dis.value)" >Save</button>
             
           </form>

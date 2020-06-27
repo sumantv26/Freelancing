@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DevdataService } from '../devdata.service';
+import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-devpofile',
@@ -7,6 +9,13 @@ import { DevdataService } from '../devdata.service';
   styleUrls: ['./devpofile.component.css']
 })
 export class DevpofileComponent implements OnInit {
+  // send email info
+  clientemail;
+  emailsubject;
+  emailcontent;
+
+
+  id;
   emailProp;
   nameProp;
   categoryProp;
@@ -27,8 +36,10 @@ export class DevpofileComponent implements OnInit {
 
   price;
   hours;
+
+  imgSource;
   
-  constructor(private devs:DevdataService) { }
+  constructor(private devs:DevdataService ) { }
 
   ngOnInit(): void {
     var email=localStorage.getItem("devemail")
@@ -36,6 +47,8 @@ export class DevpofileComponent implements OnInit {
       if(res.status="ok"){
         res.data.forEach(element => {
           if(element.email==email){
+            this.id=element.id
+            this.imgSource="http://localhost:4000/"+element.email+"_profile.jpg"
             this.emailProp=element.email;
             this.nameProp=element.name[0].toUpperCase()+element.name.slice(1);
             this.experienceProp=element.experience+" year";
@@ -44,25 +57,30 @@ export class DevpofileComponent implements OnInit {
 
             this.rateProp=element.rate+" $"
             this.locProp=element.location[0].toUpperCase()+element.location.slice(1)
-            this.lanProp=element.language[0].toUpperCase()+element.language.slice(1)
-            this.titleProp=element.title
+            this.lanProp=element.category[0].toUpperCase()+element.category.slice(1)
+            this.titleProp=element.title[0].toUpperCase()+element.title.slice(1)
             this.disProp=element.discription[0].toUpperCase()+element.discription.slice(1)
             this.UnameProp=element.university
-            this.skillsArr=element.skills
+            this.skillsArr=element.skills.split(",")
 
             this.instaUrl=element.instaUrl
             this.facebookUrl=element.facebookUrl
             
             this.twitterUrl=element.twitterUrl
-            console.log(this.emailProp,this.nameProp,this.experienceProp,this.degreeProp,this.categoryProp)
+            console.log(this.emailProp,this.nameProp,this.experienceProp,this.degreeProp,this.categoryProp ,this.id)
           }
         });
       }
     })
+  
     console.log(this.nameProp)
   }
 
-    addMoney(){
+  sendEmail(){
       // this.devs.save()
+      this.devs.sendMail({clientemail:this.clientemail,devemail:this.emailProp,emailsubject:this.emailsubject,emailcontent:this.emailcontent}).subscribe(res=>{
+        alert(res.err)
+      })
+      // , "ucvcxvuefudusgao" , "sumantv26@gmail.com", "this is just to Test Node mailer this is subject", `this is content   <h3>Hi</h3><br><h6>Following is the link to rest your password</h6><a href="http://localhost:4200/newpassword">Reset Password</a>` 
     }
 }

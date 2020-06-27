@@ -3,9 +3,10 @@
 }
 .searchHeader{
     position: relative;
-    height: 90vh;
+    margin-top: 5%;
+    /* height: 90vh; */
 
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
 } 
 
