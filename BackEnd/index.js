@@ -103,7 +103,7 @@ app.get('/dev', bodyParser.json() ,(req,res)=>{
     })
 
     });
-
+    
     app.put('/dev', bodyParser.json() ,(req,res)=>{  
 
         const collection = connection.db('Developer').collection('devdata');
