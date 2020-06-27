@@ -10,24 +10,28 @@
 
 .one{
 
-    height: 200vh;
+    /* height: 100%; */
     background-color:#F2F2F2;
     color: black;
     position: relative;
+    /* margin-top:5%;
+    margin-bottom:5%; */
+    padding: 5%;
    
 }
 .two{
     width: 50%;
-    height: 190vh;
+    /* height: 100%; */
     background-color: white;
     position: relative;
     text-align: center;
     font-family: sans-serif;
     align-items: center;
     font-size: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    /* top: 50%;*/
+    left: 50%; 
+  
+    transform: translate(-50%);
 }
 .p1{
     

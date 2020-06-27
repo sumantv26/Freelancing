@@ -6,7 +6,8 @@ const ObjectId = require('mongodb').ObjectId;
 const multer = require('multer');
 const path = require('path');
 
-
+var nodemailer = require('nodemailer');
+const { info, error } = require('console');
 
 
 
@@ -65,7 +66,7 @@ var storage = multer.diskStorage({
                   
                             req.genId=result.insertedIds['0'];
                             req.isInsertedSuccess = true;
-                            cb(null, req.genId+"_"+file.fieldname+".jpg");
+                            cb(null, req.body.email+"_"+file.fieldname+".jpg");
 
 
                     }
@@ -93,7 +94,7 @@ var storage = multer.diskStorage({
                       if(req.isAlreadyExist)
                       {
 
-                          res.send({status:'failed', data:"already exist"})
+                          res.send({status:'failed', data:"you have already give your data"})
                           
                       }
                       else {
@@ -102,6 +103,7 @@ var storage = multer.diskStorage({
                       } 
 }
 )
+
 
 
 
@@ -155,7 +157,7 @@ app.get('/sign-up', bodyParser.json() ,(req,res)=>{
 app.post('/dev', bodyParser.json() ,(req,res)=>{  
 
     const collection = connection.db('Developer').collection('devdata');
-
+    
 
     collection.insert(req.body, (err,result)=>{
         if(!err)
@@ -202,6 +204,65 @@ app.get('/dev', bodyParser.json() ,(req,res)=>{
         })
     });
     
+
+app.post("/sendmail", bodyParser.json(),(req,res)=>{
+    var clientemail= req.body.clientemail;
+    var devemail= req.body.devemail;
+    var emailsubject= req.body.emailsubject;
+    var emailcontent= req.body.emailcontent;
+    // var devemail=req.body.devemail;
+    // alert("hello")
+    // res.send(client.user)
+    console.log(req.body.clientemail, req.body.devemail)
+    sendMail(devemail,"ucvcxvuefudusgao",clientemail,emailsubject, emailcontent, info=>{
+        console.log(info)
+        res.send(info)
+    })
+})
+
+function sendMail(from, appPassword, to, subject,  htmlmsg, callback)
+{
+    let transporter=nodemailer.createTransport(
+        {
+            host:"smtp.gmail.com",
+            port:587,
+            secure:false,
+            auth:
+            {
+             //  user:"weforwomen01@gmail.com",
+             //  pass:""
+             user:from,
+              pass:appPassword
+              
+    
+            }
+        }
+      );
+    let mailOptions=
+    {
+       from:from ,
+       to:to,
+       subject:subject,
+       html:htmlmsg
+    };
+    transporter.sendMail(mailOptions ,function(error,info)
+    {
+      if(error)
+      {
+        console.log(error);
+        callback({err:"something is wrong"})
+      }
+      else
+      {
+        console.log('Email sent:'+info.response);
+        callback({err:"sent"})
+      }
+    });
+
+   
+
+}
+
 
 
 app.listen(4000, ()=>{

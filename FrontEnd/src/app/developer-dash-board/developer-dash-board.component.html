@@ -130,7 +130,7 @@
              
             </table>
           
-            <h5 id="alerttext" [innerHTML]="variable"></h5>
+            <h5 id="alerttext" [style.color]="variableColor"  [innerHTML]="variable"></h5>
             <button type="submit" class="btn btn-success" (click)="save(cat.value,exp.value,uname.value,deg.value,skills.value,rate.value,loc.value,lan.value,title.value,dis.value)" >Save</button>
             
           </form>
