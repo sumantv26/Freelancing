@@ -30,6 +30,7 @@ facebookUrl="https://www.facebook.com/";
 instaUrl="https://www.instagram.com/";
 twitterUrl="https://twitter.com/";
 
+profile;
 found=false;
   constructor(private ds:DevdataService, private router:Router) { }
 
@@ -38,7 +39,27 @@ found=false;
     this.email=localStorage.getItem("email")
     this.name=localStorage.getItem("name")
   }
+  getProfile(e)
+  {
+      this.profile=e.target.files[0];
+  }
+
   save(cat,exp,uname,deg,skills,rate,loc,lan,title,dis){
+
+
+    var form = new FormData();
+    // for (var i=0; i<this.gallery.length;i++)
+    // {
+    //   form.append("gallery",this.gallery[i], this.gallery[i]['name']);
+    // }
+    form.set('name', name);
+    form.set('profile', this.profile);
+    form.set('email', this.email);
+    
+    this.ds.uploadImg(form).subscribe((d)=>{alert(JSON.stringify(d))});
+
+
+
     var found=false;
 
     this.catagoryProp=cat
@@ -81,7 +102,7 @@ found=false;
   insertData(found,res,skillsArray){
     if(found  && res.status=="ok"){
       alert("you already gave your data ")
-      this.router.navigate(['/mainpage/home']);
+      // this.router.navigate(['/mainpage/home']);
     }
     else {
       this.ds.save({name:this.name, 
@@ -110,7 +131,7 @@ found=false;
         
             this.variable="Data saved Successfull You will redirect to home in 3 seconds"
             setTimeout(() => {
-              this.router.navigate(['/mainpage/home']);
+              // this.router.navigate(['/mainpage/home']);
             }, 3000);
             console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
         }

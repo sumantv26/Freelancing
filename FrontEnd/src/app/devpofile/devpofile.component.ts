@@ -44,8 +44,8 @@ export class DevpofileComponent implements OnInit {
 
             this.rateProp=element.rate+" $"
             this.locProp=element.location[0].toUpperCase()+element.location.slice(1)
-            this.lanProp=element.language[0].toUpperCase()+element.language.slice(1)
-            this.titleProp=element.title
+            this.lanProp=element.category[0].toUpperCase()+element.category.slice(1)
+            this.titleProp=element.title[0].toUpperCase()+element.title.slice(1)
             this.disProp=element.discription[0].toUpperCase()+element.discription.slice(1)
             this.UnameProp=element.university
             this.skillsArr=element.skills

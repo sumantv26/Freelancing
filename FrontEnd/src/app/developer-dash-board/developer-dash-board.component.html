@@ -10,6 +10,11 @@
         <p class="p1">Put Your Details: </p>
           <form #f="ngForm" ngNativeValidate>
             <table>
+
+              <tr>
+                <td><label for="avatar">profile pic:</label></td>
+                <td><input type="file" name="avatar" id="avatar" (change)="getProfile($event)"></td>
+              </tr>
               <tr>
        
               <td><label for="category">Choose Category:</label></td>

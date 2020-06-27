@@ -3,6 +3,12 @@ const bodyParser = require('body-parser');
 const cors  = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
+const multer = require('multer');
+
+
+
+
+
 
 // var client = new MongoClient('mongodb://localhost:27017/chatroom', {useNewUrlParser:true})
 var client = new MongoClient("mongodb+srv://sumant:rajendrav26@cluster0-6ko7m.mongodb.net/freelance?retryWrites=true&w=majority", {useNewUrlParser:true})
@@ -27,6 +33,52 @@ const app = express();
 
 
 app.use(cors());
+
+
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log("in destination");
+      cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+      console.log(file);
+      cb(null, req.genId+"_"+file.fieldname+"_"+req[file.fieldname+'Ctr']++ +".jpg");
+
+    }
+  })
+  
+  var upload = multer({ storage: storage })
+
+  app.post('/images',    (req,res,next)=>{ 
+                              
+    req.genId=req.body.email; 
+    req['galleryCtr']=1;
+    req['profileCtr']=1; 
+
+    next(); },
+
+
+  upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'gallery', maxCount: 8 }]),
+  (req,res)=>{  console.log("in last",);    res.send({status:"ok"})
+}
+)
+
+
+app.post('/images', 
+(req,res,next)=>{ 
+  
+  req.genId="hh"; 
+  req['galleryCtr']=1;
+  req['profileCtr']=1; 
+
+  next(); },
+
+
+upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'gallery', maxCount: 8 }]),
+(req,res)=>{  console.log("in last");    res.send({status:"ok"})
+});
+
 
 app.post('/sign-up', bodyParser.json() ,(req,res)=>{  
 
