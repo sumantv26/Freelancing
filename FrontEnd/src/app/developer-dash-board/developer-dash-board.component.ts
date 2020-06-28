@@ -140,46 +140,46 @@ found=false;
     // }
   }
 
-  insertData(found,res,skillsArray){
-    if(found  && res.status=="ok"){
-      alert("you already gave your data ")
-      this.router.navigate(['/mainpage/home']);
-    }
-    else {
-      this.ds.save({
-        name:this.name, 
-        email:this.email, 
-        category:this.catagoryProp,
-        experience:this.experienceProp, 
-        university:this.UnameProp,
-        degree:this.degreeProp,
-        skills: skillsArray,
-        rate:this.rateProp,
-        location:this.locProp,
-        language:this.lanProp,
-        title:this.titleProp,
-        discription:this.disProp,
-        facebookUrl:this.facebookUrl,
-        instaUrl:this.instaUrl,
-        twitterUrl:this.twitterUrl
+  // insertData(found,res,skillsArray){
+  //   if(found  && res.status=="ok"){
+  //     alert("you already gave your data ")
+  //     this.router.navigate(['/mainpage/home']);
+  //   }
+  //   else {
+  //     this.ds.save({
+  //       name:this.name, 
+  //       email:this.email, 
+  //       category:this.catagoryProp,
+  //       experience:this.experienceProp, 
+  //       university:this.UnameProp,
+  //       degree:this.degreeProp,
+  //       skills: skillsArray,
+  //       rate:this.rateProp,
+  //       location:this.locProp,
+  //       language:this.lanProp,
+  //       title:this.titleProp,
+  //       discription:this.disProp,
+  //       facebookUrl:this.facebookUrl,
+  //       instaUrl:this.instaUrl,
+  //       twitterUrl:this.twitterUrl
 
         
-      })
-      .subscribe((response)=>{
-        if(response.status=="ok")
-        {
-            // alert("Data saved Successfull You will redirect to home in 3 seconds");
-            // 
+  //     })
+  //     .subscribe((response)=>{
+  //       if(response.status=="ok")
+  //       {
+  //           // alert("Data saved Successfull You will redirect to home in 3 seconds");
+  //           // 
         
-            this.variable="Data saved Successfull You will redirect to home in 3 seconds"
-            setTimeout(() => {
-              this.router.navigate(['/mainpage/home']);
-            }, 3000);
-            console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
-        }
-      }) 
-    }
-  }
+  //           this.variable="Data saved Successfull You will redirect to home in 3 seconds"
+  //           setTimeout(() => {
+  //             this.router.navigate(['/mainpage/home']);
+  //           }, 3000);
+  //           console.log(this.catagoryProp,this.experienceProp,this.degreeProp)
+  //       }
+  //     }) 
+  //   }
+  // }
 
 }
 
