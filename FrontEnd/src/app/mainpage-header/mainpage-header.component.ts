@@ -8,9 +8,13 @@ import { Router } from '@angular/router';
 })
 export class MainpageHeaderComponent implements OnInit {
 
+  currentUser
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+     this.currentUser=localStorage.getItem("login")
+     console.log(this.currentUser)
   }
 
  toggle(){
@@ -23,6 +27,13 @@ export class MainpageHeaderComponent implements OnInit {
  check(val){
   localStorage.setItem("searchResult",val)
   this.router.navigate(['/searchResult'])
+ }
+
+ gotoDeshboard()
+ {
+
+   this.router.navigate(["dev-dashboard"])
+   console.log(this.currentUser)
  }
 
 }

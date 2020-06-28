@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
   }
 
   signin()
-  { var acFound=false;
+  { 
+     
+    var acFound=false;
      
      if(this.emailProp !="" && this.passwordProp!=""){
       // {email:this.emailProp, password:this.passwordProp}
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
               console.log(element.email, element.password)
               localStorage.setItem('email', element.email);
               localStorage.setItem('name', element.name);
+              localStorage.setItem("login",element.name)
               this.router.navigate(['/dev-dashboard']); 
               
             }

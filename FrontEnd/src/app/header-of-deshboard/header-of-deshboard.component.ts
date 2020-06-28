@@ -25,4 +25,12 @@ export class HeaderOfDeshboardComponent implements OnInit {
   this.router.navigate(['/searchResult'])
  }
 
+ logout(){
+  localStorage.setItem("login","empty")
+  this.router.navigate(["/mainpage/home"])
+ }
+ gotoHome(){
+  this.router.navigate(["/mainpage/home"])
+ }
+
 }

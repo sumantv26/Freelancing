@@ -14,10 +14,10 @@
         </div>
     
             <ul class="item">
-                <!-- <li class="lnk" routerLink="/maipage/home">HOME</li>
-                <li class="lnk" routerLink="/mainpage/contact">CONTACT</li> -->
+               <li class="lnk" (click)="gotoHome()">HOME</li>
+               <!--   <li class="lnk" routerLink="/mainpage/contact">CONTACT</li> -->
                 <!-- <li class="lnk" routerLink="/signin">Logout</li> -->
-                <li ><button  routerLink="/mainpage/signin">Logout</button></li>
+                <li ><button (click)="logout()">Logout</button></li>
             </ul>
     </div>
 </header>
