@@ -13,13 +13,13 @@
 
               <tr>
                 <td><label for="avatar">Profile Picture:</label></td>
-                <td><input type="file" name="avatar" id="avatar" (change)="getProfile($event)"></td>
+                <td><input class="form-control" #imgRef="ngModel" name="img" required type="file" ngModel name="avatar" id="avatar" (change)="getProfile($event)"></td>
               </tr>
               <tr>
        
               <td><label for="category">Choose Category:</label></td>
                   <td>
-                    <select  name="category" id="category" #cat>
+                    <select class="form-control"  name="category"  [value]="categoryProp" id="category" #cat>
 
                       <option class="dropdown-item" value="fullstack">Fullstack Developer</option>
                       <option value="androidDevloper">Android Developer</option>
@@ -39,7 +39,7 @@
               <label for="year">Year Of Experience:</label> 
              </td>
              <td>
-              <select  name="year" [value]="experienceProp" id="year" #exp>
+              <select class="form-control"  name="year" [value]="experienceProp" id="year" #exp>
                 <option value="1">1</option>
                 <option value="2" [value]="2">2</option>
                 <option value="3">3</option>
@@ -53,32 +53,33 @@
 
            <tr>
             <td><label for="university">University Name:</label> </td>
-            <td><input type="text" id="university" [value]=UnameProp #uname></td>
+            <td><input class="form-control" type="text" id="university" [value]=UnameProp #uname></td>
            </tr>
            <tr>
              <td><label for="degree" >Degree:</label> </td>
             
              <td>
-              <select  name="degree" [value]="degreeProp" id="degree" #deg>
-              <option value="btech">Btech</option>
-              <option value="mtech">Mtech</option>
+              <select class="form-control"  name="degree" [value]="degreeProp" id="degree" #deg>
+              <option value="btech">BTech.</option>
+              <option value="mtech">MTech.</option>
               <option value="mba">MBA</option>
-              <option value="bsc">Bsc</option>
-              <option value="bca">Bca</option>
+              <option value="bsc">BSC</option>
+              <option value="bca">BCA</option>
+              <option value="mca">MCA</option>
   
             </select>
              </td>
            </tr>
            <tr>
             <td><label for="skills">Skills You have:</label> </td>
-            <td><textarea name="skills" id="skills" [value]="skillsProp" cols="10" rows="3" #skills placeholder="type multiple skills by giving comma(',')"></textarea></td>
+            <td><textarea class="form-control" name="skills" id="skills" [value]="skillsProp" cols="10" rows="3" #skills placeholder="type multiple skills by giving comma(',')"></textarea></td>
            </tr>
            <tr>
              <td>
                <label for="charge"> $ Hourly Rate: </label>
              </td>
              <td>
-               <input type="number" name="" id="charge" [value]="rateProp" #rate required>
+               <input class="form-control" type="number" name="" id="charge" [value]="rateProp" #rate required>
              </td>
            </tr>
            <tr>
@@ -86,33 +87,33 @@
               <label for="location">Location:</label>
             </td>
             <td>
-              <input type="text" name="" id="location" [value]="locProp"  #loc required>
+              <input class="form-control" type="text" name="" id="location" [value]="locProp"  #loc required>
             </td>
           </tr>
           <tr>
           <td><label for="lang">Communication Language :</label> </td>
          
           <td>
-           <select  name="lang" [value]="lanProp" id="lang" #lan>
+           <select class="form-control"  name="lang" [value]="lanProp" id="lang" #lan>
            <option value="english">English</option>
            <option value="hindi">Hindi</option>
-           <option value="urdu">Urdu</option>
-           <option value="panjabi">Panjabi</option>
+           <option value="urdu">Germany</option>
+           <option value="panjabi">Japanies</option>
           
 
          </select>
           </td>
         </tr>
         <tr>
-          <td><h3 style="margin-top: 50px; color: green;">Title & Discription</h3></td>
+          <td><h3 style="margin-top: 50px; color: green;">Title & Description</h3></td>
         </tr>
         <tr>
           <td><label for="title">Title:</label></td>
-          <td><input type="text" [value]="titleProp" #title></td>
+          <td><input class="form-control" type="text" [value]="titleProp" #title></td>
       </tr>
       <tr>
         <td><label for="discription">Description:</label></td>
-        <td><textarea name="discription" id="discription" cols="20" rows="5" [value]="disProp"   #dis></textarea></td>
+        <td><textarea class="form-control" name="discription" id="discription" cols="20" rows="5" [value]="disProp"   #dis></textarea></td>
     </tr>
 
     <tr>
@@ -120,15 +121,15 @@
     </tr>
     <tr>
       <td><label for="title">Facebook:</label></td>
-      <td><input type="text"  [(ngModel)]="facebookUrl" [ngModelOptions]="{standalone: true}" placeholder="link of your facebook profile"></td>
+      <td><input class="form-control" type="text"  [(ngModel)]="facebookUrl" name="facebook" placeholder="link of your facebook profile"></td>
   </tr>
   <tr>
     <td><label for="title">Instagram:</label></td>
-    <td><input type="text" [(ngModel)]="instaUrl" [ngModelOptions]="{standalone: true}" placeholder="link of your insta profile"></td>
+    <td><input class="form-control" type="text" [(ngModel)]="instaUrl" name="insta" placeholder="link of your insta profile"></td>
 </tr>
 <tr>
   <td><label for="title">Twitter:</label></td>
-  <td><input type="text" #title [(ngModel)]="twitterUrl" [ngModelOptions]="{standalone: true}" placeholder="link of your twitter profile"></td>
+  <td><input class="form-control" type="text" #title [(ngModel)]="twitterUrl" name="twitter" placeholder="link of your twitter profile"></td>
 </tr>
   
              

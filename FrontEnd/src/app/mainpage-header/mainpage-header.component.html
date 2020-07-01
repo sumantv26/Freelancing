@@ -23,7 +23,7 @@
             <ul class="item">
                 <li class="lnk" routerLink="/mainpage/home">HOME</li>
                 <li class="lnk" routerLink="/mainpage/contact">CONTACT</li>
-                <li *ngIf="currentUser=='empty'; then login else logout" ></li>
+                <li *ngIf="currentUser=='Empty'; then login else logout" ></li>
                 <ng-template #login >
                     <li class="lnk" routerLink="/mainpage/signin">SIGN IN</li>
                     <li ><button  routerLink="/mainpage/signup" >SIGN UP</button></li>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { DevdataService } from '../devdata.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   passwordProp="";
   mobileNoProp="";
   confirmPassProp="";
-  constructor(private ds:DataService, private router:Router) { }
+  constructor(private ds:DataService, private router:Router, private dvs:DevdataService) { }
 
   ngOnInit(): void {
    
@@ -35,7 +36,13 @@ export class SignupComponent implements OnInit {
             .subscribe((response)=>{
               if(response.status=="ok")
               {
+                  this.dvs.sendMail({clientemail:this.emailProp,name:this.nameProp}).subscribe(res=>
+                    {
+                      alert(res.err)
+                    })
+
                   alert("Sign Up Successfull you will be redirected to sign in ");
+
                   this.router.navigate(['/mainpage/signin']);
               }
             })

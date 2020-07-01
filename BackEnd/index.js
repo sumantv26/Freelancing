@@ -209,14 +209,16 @@ app.get('/dev', bodyParser.json() ,(req,res)=>{
 
 app.post("/sendmail", bodyParser.json(),(req,res)=>{
     var clientemail= req.body.clientemail;
-    var devemail= req.body.devemail;
-    var emailsubject= req.body.emailsubject;
-    var emailcontent= req.body.emailcontent;
+     var name= req.body.name;
+    var emailsubject= "Registration";
+    var emailcontent= "<h2>Hi! &nbsp;"+ name+"</h2><h4>Your Account Is Successfully Created</h4>";
+                            
+                        
     // var devemail=req.body.devemail;
     // alert("hello")
     // res.send(client.user)
     console.log(req.body.clientemail, req.body.devemail)
-    sendMail(clientemail,"ucvcxvuefudusgao",devemail,emailsubject, emailcontent, info=>{
+    sendMail("sumantv26@gmail.com","ucvcxvuefudusgao",clientemail,emailsubject, emailcontent, info=>{
         console.log(info)
         res.send(info)
     })
@@ -252,12 +254,12 @@ function sendMail(from, appPassword, to, subject,  htmlmsg, callback)
       if(error)
       {
         console.log(error);
-        callback({err:"something is wrong"})
+        callback({err:"Can't sent Email"})
       }
       else
       {
         console.log('Email sent:'+info.response);
-        callback({err:"sent"})
+        callback({err:"Email Sent"})
       }
     });
 

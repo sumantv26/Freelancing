@@ -13,7 +13,7 @@ export class MainpageHeaderComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-     this.currentUser=localStorage.getItem("login")
+     this.currentUser=localStorage.getItem("login")[0].toUpperCase()+localStorage.getItem("login").slice(1)
      console.log(this.currentUser)
   }
 

@@ -18,7 +18,7 @@ export class DeveloperDashBoardComponent implements OnInit {
   variableColor="red";
   email="";
   name=""
-  catagoryProp="";
+  categoryProp="";
   experienceProp="1";
   degreeProp=""
   rateProp="";
@@ -41,7 +41,7 @@ found=false;
 
   ngOnInit(): void {
     this.email=localStorage.getItem("email")
-    this.name=localStorage.getItem("name")
+    this.name=localStorage.getItem("name")[0].toUpperCase()+localStorage.getItem("name").slice(1)
     this.ds.GetDevData().subscribe(res=>{
       if(res.status="ok"){
         
@@ -55,7 +55,7 @@ found=false;
             this.buttonText="UPDATE"
             this.disProp=element.discription
             this.titleProp=element.title
-            this.catagoryProp=element.category
+            this.categoryProp=element.category
             this.experienceProp=element.experience
             this.degreeProp=element.degree
             this.rateProp=element.rate
