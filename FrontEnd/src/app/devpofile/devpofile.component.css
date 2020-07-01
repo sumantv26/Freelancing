@@ -105,6 +105,18 @@ padding-bottom: 10px;
     padding-left: 50px;
     padding-top: 30px;
 }
+
+.discription p{
+    margin-left: 10%;
+    font-size: 20px;
+    padding-top: 2%;
+}
+
+.education h5{
+    margin-left: 10%;
+    padding-top: 2%;
+} 
+
 .contact{
     display: flex;
     font-family: 'Open Sans', sans-serif
@@ -159,13 +171,15 @@ padding-bottom: 10px;
 }
 
 .skills ul{
-    padding: 20px;
+    padding: 5px;
+    margin-left: 10%;
 }
 h4{
     color: #018328 ;
 }
 .send-email{
     margin-top: 7%;
+   
 }
 .send-email .form-group{
     margin-top: 2%;

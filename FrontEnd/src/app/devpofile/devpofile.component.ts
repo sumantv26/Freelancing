@@ -52,7 +52,7 @@ export class DevpofileComponent implements OnInit {
             this.emailProp=element.email;
             this.nameProp=element.name[0].toUpperCase()+element.name.slice(1);
             this.experienceProp=element.experience+" year";
-            this.degreeProp=element.degree;
+            this.degreeProp=element.degree.toUpperCase();
             this.categoryProp=element.category[0].toUpperCase()+element.category.slice(1)+ " Developer";
 
             this.rateProp=element.rate+" $"
@@ -60,7 +60,7 @@ export class DevpofileComponent implements OnInit {
             this.lanProp=element.category[0].toUpperCase()+element.category.slice(1)
             this.titleProp=element.title[0].toUpperCase()+element.title.slice(1)
             this.disProp=element.discription[0].toUpperCase()+element.discription.slice(1)
-            this.UnameProp=element.university
+            this.UnameProp=element.university.toUpperCase()
             this.skillsArr=element.skills.split(",")
 
             this.instaUrl=element.instaUrl

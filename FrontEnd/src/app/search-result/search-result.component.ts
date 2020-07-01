@@ -31,9 +31,9 @@ export class SearchResultComponent implements OnInit {
          for(let i=0 ; arr.length>i;i++){
            console.log(element.category,arr[i])
            var catarray=element.category.split(" ")
-           for(let j=0 ; arr.length>j;j++){
+           for(let j=0 ; catarray.length>j;j++){
             if(arr[i]==catarray[j])
-            { this.searchResult.push({name:element.name,email:element.email,cat:arr[i]})
+            { this.searchResult.push({name:element.name,email:element.email,cat:element.category[0].toUpperCase()+element.category.slice(1)})
             console.log(this.searchResult)
             found=true
               }
