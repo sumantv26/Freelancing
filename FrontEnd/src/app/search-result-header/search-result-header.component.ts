@@ -11,6 +11,7 @@ export class SearchResultHeaderComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    
   }
 
  toggle(){
@@ -23,7 +24,8 @@ export class SearchResultHeaderComponent implements OnInit {
  check(val){
   localStorage.setItem("searchResult",val)
   // this.router.navigateByUrl('/searchResult', { skipLocationChange: true });
-   this.router.navigate(["/http://localhost:4200/searchResult"]);
+  //  this.router.navigate(["/http://localhost:4200/searchResult"]);
+   window.location.href = "http://localhost:4200/searchResult"
  }
 
 }

@@ -23,36 +23,57 @@ export class SignupComponent implements OnInit {
   signUP()
   { var acFound=false;
     if(this.nameProp!="" && this.emailProp!="" && this.passwordProp!="" && this.mobileNoProp!=""){
-    this.ds.signIn()
+    this.ds.signIn({email:this.emailProp})
     .subscribe((response)=>{
-      if(response.status=="ok")
-      {
 
-        response.data.forEach(element => {
-          if(element.email==this.emailProp){
-        
-            console.log(element.email,this.emailProp)
-          acFound=true
-          }
-        
-        });
-      }
-      if(acFound){
+      if(response.status=="ok"){
         alert("Account Already Exist")
       }
-      else if(this.passwordProp==this.confirmPassProp){
-             this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp ,phone:this.mobileNoProp})
-        .subscribe((response)=>{
-          if(response.status=="ok")
-          {
-              alert("Sign Up Successfull you will be redirected to sign in ");
-              this.router.navigate(['/mainpage/signin']);
-          }
-        })
-      }
       else{
-        alert("confirmed password not matched!")
+        if(this.passwordProp==this.confirmPassProp){
+                 this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp ,phone:this.mobileNoProp})
+            .subscribe((response)=>{
+              if(response.status=="ok")
+              {
+                  alert("Sign Up Successfull you will be redirected to sign in ");
+                  this.router.navigate(['/mainpage/signin']);
+              }
+            })
+          }
+          else{
+            alert("confirmed password not matched!")
+          }
       }
+
+
+      // if(response.status=="ok")
+      // {
+
+      //   response.data.forEach(element => {
+      //     if(element.email==this.emailProp){
+        
+      //       console.log(element.email,this.emailProp)
+      //     acFound=true
+      //     }
+        
+      //   });
+      // }
+      // if(acFound){
+      //   alert("Account Already Exist")
+      // }
+      // else if(this.passwordProp==this.confirmPassProp){
+      //        this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp ,phone:this.mobileNoProp})
+      //   .subscribe((response)=>{
+      //     if(response.status=="ok")
+      //     {
+      //         alert("Sign Up Successfull you will be redirected to sign in ");
+      //         this.router.navigate(['/mainpage/signin']);
+      //     }
+      //   })
+      // }
+      // else{
+      //   alert("confirmed password not matched!")
+      // }
     })
   }
   else{

@@ -1,36 +1,47 @@
 <div class="one">
     <div class="two">
         <p class="p1">Get your free account</p>
-          <form #f="ngForm" ngNativeValidate>
+          <form #userForm="ngForm" ngNativeValidate >
+          <!-- <h1> {{userForm.form.valid}}</h1>  -->
             <div class="form-group">
-              <input type="name" class="form-control" [(ngModel)]="nameProp" [ngModelOptions]="{standalone: true}" placeholder="FullName" id="name" required>
+              <input type="name" class="form-control " [(ngModel)]="nameProp" name="fullname" placeholder="FullName" id="name" required>
              
             </div>
             <div class="form-group">
-                <input  #emailRef="ngModel" type="email" class="form-control"  [(ngModel)]="emailProp" [ngModelOptions]="{standalone: true}" placeholder="Email" id="email" required>
+                <input  #emailRef="ngModel" type="email" class="form-control"  [(ngModel)]="emailProp" name="email" placeholder="Email" id="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
                 <span *ngIf="emailRef.touched && emailRef.invalid" > this is a required field </span>
+                <div *ngIf="emailRef.errors">
+                  <span *ngIf="emailRef.touched && emailRef.errors.pattern" >Enter vaild email</span>
+                </div>
               </div>
               <div class="form-group">
-                <input #mobileRef="ngModel" type="number" class="form-control"  [(ngModel)]="mobileNoProp" [ngModelOptions]="{standalone: true}" placeholder="Mobile Number" id="mobNo" required minlength="8">
+                <input #mobileRef="ngModel" type="number" class="form-control"  [(ngModel)]="mobileNoProp" name="mobileno" placeholder="Mobile Number" id="mobNo" required minlength="8">
                 <div *ngIf="mobileRef.errors">
                 <span *ngIf="mobileRef.touched && mobileRef.errors.required" > this a required field </span>
                 <span *ngIf="mobileRef.touched && mobileRef.errors.minlength" > minimum length should be 8 charcters </span>
                 </div>
               </div>
             <div class="form-group">
-              <input #passRef="ngModel"  type="password" [(ngModel)]="passwordProp"  [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" id="pwd" pattern="^[0-9a-z]{8,12}$" required minlength="8">
+              <input #passRef="ngModel"  type="password" [(ngModel)]="passwordProp"  name="pwd" class="form-control" placeholder="Password" id="pwd" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required minlength="8">
               <div *ngIf="passRef.errors">
 
                 <span *ngIf="passRef.touched && passRef.errors.required" > this a required field </span>
-                <span *ngIf="passRef.touched && passRef.errors.minlength" > minimum length should be 8 charcters </span>
-                <span *ngIf="passRef.touched && passRef.errors.pattern" > min 8, max 12, numeric and small letter only </span>
+                <span *ngIf="passRef.touched && passRef.errors.minlength" > minimum length should be {{passRef.errors.minlength.requiredLength}} charcters </span>
+                <span *ngIf="passRef.touched && passRef.errors.pattern" >at least one letter, one number and one special character</span>
     
             </div>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control"  [(ngModel)]="confirmPassProp" [ngModelOptions]="{standalone: true}" placeholder="Confirm Password" id="confirmPwd">
+                <input  #CpassRef="ngModel" required type="password" class="form-control"  [(ngModel)]="confirmPassProp" name="confirmpassword" placeholder="Confirm Password" id="confirmPwd">
+                <div *ngIf="CpassRef.errors">
+
+                  <span *ngIf="CpassRef.touched && CpassRef.errors.required" > this a required field </span>
+                  <!-- <span *ngIf="passRef.touched && passRef.errors.minlength" > minimum length should be {{passRef.errors.minlength.requiredLength}} charcters </span>
+                  <span *ngIf="passRef.touched && passRef.errors.pattern" >at least one letter, one number and one special character</span> -->
+      
               </div>
-            <button type="submit" class="btn btn-success" (click)="signUP()" >Register</button>
+              </div>
+            <button type="submit" [disabled]="userForm.form.invalid" class="btn btn-success" (click)="signUP()" >Register</button>
           </form>
     </div>
 </div>

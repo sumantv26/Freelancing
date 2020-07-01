@@ -26,4 +26,8 @@ export class DevdataService {
     return this.http.post(this.baseURL+"/sendmail",data)
   }
 
+  updateData(data):any{
+    return this.http.post(this.baseURL+"/devUpdate",data)
+  }
+
 }

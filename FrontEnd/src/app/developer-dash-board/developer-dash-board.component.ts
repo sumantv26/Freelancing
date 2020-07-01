@@ -10,21 +10,24 @@ import { DevdataService } from '../devdata.service';
 })
 export class DeveloperDashBoardComponent implements OnInit {
 
+  isDevData=false;
+  buttonText="SAVE";
+
   categoryList=['web','app']
   variable;
   variableColor="red";
   email="";
   name=""
   catagoryProp="";
-  experienceProp="";
+  experienceProp="1";
   degreeProp=""
-  rateProp;
-  locProp;
+  rateProp="";
+  locProp="";
   lanProp;
-  titleProp;
-  disProp;
-  UnameProp;
-  skillsProp;
+  titleProp="";
+  disProp="";
+  UnameProp="";
+  skillsProp="";
 
 // url
 facebookUrl="https://www.facebook.com/";
@@ -39,11 +42,45 @@ found=false;
   ngOnInit(): void {
     this.email=localStorage.getItem("email")
     this.name=localStorage.getItem("name")
+    this.ds.GetDevData().subscribe(res=>{
+      if(res.status="ok"){
+        
+        res.data.forEach(element => {
+          // console.log("in onit")
+          // console.log(element.email)
+
+          if(element.email==this.email){
+            this.isDevData=true
+            console.log(element.email)
+            this.buttonText="UPDATE"
+            this.disProp=element.discription
+            this.titleProp=element.title
+            this.catagoryProp=element.category
+            this.experienceProp=element.experience
+            this.degreeProp=element.degree
+            this.rateProp=element.rate
+            this.locProp=element.location
+            this.lanProp=element.language
+            this.UnameProp=element.university
+            this.skillsProp=element.skills
+            this.facebookUrl=element.facebookUrl;
+            this.instaUrl=element.instaUrl
+            this.twitterUrl=element.instaUrl
+
+          }
+        });
+
+      }
+    })
+
   }
   getProfile(e)
   {
       this.profile=e.target.files[0];
   }
+
+
+
 
   save(cat,exp,uname,deg,skills,rate,loc,lan,title,dis){
 
@@ -72,24 +109,56 @@ found=false;
       form.set('profile', this.profile);
       
       
+     
+
+
+     if(this.isDevData==false){
       this.ds.uploadImg(form).subscribe((d)=>{
-      if(d.status=="ok")
-       {
-        this.variable="Data saved Successfull You will redirect to home in 3 seconds"
-        this.variableColor="green"
-        setTimeout(() => {
-          this.router.navigate(['/mainpage/home']);
-        }, 3000);
-       }
-       else{
-         this.variable="Data Is Already saved"
-         setTimeout(() => {
-          this.router.navigate(['/mainpage/home']);
-        }, 3000);
-         this.variableColor="red"
-       }
-      
-      });
+        if(d.status=="ok")
+         {
+          this.variable="Data saved Successfull You will redirect to home in 3 seconds"
+          this.variableColor="green"
+          setTimeout(() => {
+            this.router.navigate(['/mainpage/home']);
+          }, 3000);
+         }
+         else{
+           this.variable="Data Is Already saved"
+           setTimeout(() => {
+            this.router.navigate(['/mainpage/home']);
+          }, 3000);
+           this.variableColor="red"
+         }
+        
+        });
+     }
+     else{
+      this.ds.updateData({
+        name:this.name,  
+        email:this.email,
+        category:cat,
+        experience:exp, 
+        university:uname,
+        degree:deg,
+        skills: skills,
+        rate:rate,
+        location:loc,
+        language:lan,
+        title:title,
+        discription:dis,
+        facebookUrl:this.facebookUrl,
+        instaUrl:this.instaUrl,
+        twitterUrl:this.twitterUrl
+      }).subscribe(res=>{
+        if(res.status=="ok"){
+            alert("data updated!")
+        }
+        else{
+          alert("data not updated!")
+        }
+        // console.log(res)
+      })
+     }
 
 
     }

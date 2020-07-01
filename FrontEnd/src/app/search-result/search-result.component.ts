@@ -14,6 +14,8 @@ export class SearchResultComponent implements OnInit {
   public searchResult=[];
   searchValue;
   category;
+
+  datakeywords=['data','datacience','data science']
   
   constructor(private devs:DevdataService ,private interaction:SearchinteractionService ,private router:Router) { }
 
@@ -24,7 +26,7 @@ export class SearchResultComponent implements OnInit {
     this.category=localStorage.getItem("searchResult")
     var arr=this.category.split(" ")
     this.devs.GetDevData().subscribe((response)=>{
-      if(response.status=="ok")
+      if(response.status=="ok"){
        response.data.forEach(element => {
          for(let i=0 ; arr.length>i;i++){
            console.log(element.category,arr[i])
@@ -42,12 +44,13 @@ export class SearchResultComponent implements OnInit {
         }
         //  console.log(this.category.split(","))
        });
+      }
 
         if(found){
           this.text="No more data "
         }
         else{
-          this.text="Not Data Found"
+          this.text="No Data Found"
         }
       }
         )
@@ -56,6 +59,9 @@ export class SearchResultComponent implements OnInit {
   sendData(d){
       localStorage.setItem("devemail",d)
       this.router.navigate(["/devprofile"])
+      if("data" in this.datakeywords){
+        console.log("He")
+      }
   }
 
 }

@@ -3,26 +3,29 @@
 }
 .one{
 
-    height: 100vh;
+    height: 100%;
     background-color:#F2F2F2;
     color: black;
     position: relative;
+    padding: 5%;
    
 }
 .two{
     width: 550px;
-    height: 90vh;
+    height: 100%;
     background-color: white;
-    position: absolute;
+    position: relative;
     text-align: center;
     font-family: sans-serif;
     font-size: 30px;
-    top: 50%;
+    /* top: 50%; */
     left: 50%;
-    transform: translate(-50%,-50%);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    transform: translate(-50%);
 }
 .p1{
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 .btn{
     width: 400px;
@@ -55,4 +58,8 @@
 span{
     color: red;
     font-size: 15px;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red;
 }

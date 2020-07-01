@@ -1,18 +1,29 @@
 <div class="one">
     <div class="two">
         <p class="p1">Log in and get to work </p>
-          <form ngNativeValidate #f="ngForm">
+          <form ngNativeValidate #userForm="ngForm">
             <div class="form-group" >
-              <input type="email" class="form-control"  [(ngModel)]="emailProp" [ngModelOptions]="{standalone: true}" placeholder="Username or Email" id="email" required>
+              <input  #emailRef="ngModel" type="email" class="form-control"  [(ngModel)]="emailProp" name="email" placeholder="Email" id="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
+              <span *ngIf="emailRef.touched && emailRef.invalid" > this is a required field </span>
+              <div *ngIf="emailRef.errors">
+                <span *ngIf="emailRef.touched && emailRef.errors.pattern" >Enter vaild email</span>
+              </div>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  [(ngModel)]="passwordProp" [ngModelOptions]="{standalone: true}" placeholder="Password" id="pwd" required>
+              <input #passRef="ngModel" type="password" class="form-control"  [(ngModel)]="passwordProp" name="pwd" placeholder="Password" id="pwd" required>
+              <div *ngIf="passRef.errors">
+
+                <span *ngIf="passRef.touched && passRef.errors.required" > this a required field </span>
+                <span *ngIf="passRef.touched && passRef.errors.minlength" > minimum length should be {{passRef.errors.minlength.requiredLength}} charcters </span>
+                <span *ngIf="passRef.touched && passRef.errors.pattern" >at least one letter, one number and one special character</span>
+    
             </div>
-            <button type="submit" class="btn btn-success" (click)="signin()" >Continue</button>
+            </div>
+            <button type="submit" [disabled]="userForm.form.invalid" class="btn btn-success" (click)="signin()" >Continue</button>
           </form>
           <div class="form-group">
           <p class="p2">New User</p>
-          <button  routerLink="/mainpage/signup" type="submit" class="btn btn-success" id="signup" >Sign Up</button>
+          <button  routerLink="/mainpage/signup"  type="submit" class="btn btn-success" id="signup" >Sign Up</button>
         </div>
     </div>
 </div>

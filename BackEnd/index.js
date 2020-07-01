@@ -98,7 +98,7 @@ var storage = multer.diskStorage({
                           
                       }
                       else {
-                          res.send({status:"ok"})
+                          res.send({status:"ok", data:"Your Data is Successfully Saved"})
 
                       } 
 }
@@ -132,9 +132,9 @@ app.post('/sign-up', bodyParser.json() ,(req,res)=>{
    });
    
 
-app.get('/sign-up', bodyParser.json() ,(req,res)=>{ 
+app.post('/sign-up-chek', bodyParser.json() ,(req,res)=>{ 
 
-
+    console.log(req.body)
 
     const collection = connection.db('freelance').collection('users');
 
@@ -142,7 +142,7 @@ app.get('/sign-up', bodyParser.json() ,(req,res)=>{
     collection.find(req.body).toArray((err,docs)=>{
         if(!err && docs.length>0)
         {
-            res.send({status:"ok", data:docs});
+            res.send({status:"ok", data:docs, da:req.body});
         }
         else{
             res.send({status:"failed", data:"some error occured"});
@@ -187,19 +187,21 @@ app.get('/dev', bodyParser.json() ,(req,res)=>{
     })
 
     });
-    
-    app.put('/dev', bodyParser.json() ,(req,res)=>{  
+
+    app.post('/devUpdate', bodyParser.json() ,(req,res)=>{  
 
         const collection = connection.db('Developer').collection('devdata');
+        
+        var email={email:req.body.email}
+        var newvalue={$set:req.body}
     
-    
-        collection.insert(req.body, (err,result)=>{
+        collection.update(email,newvalue ,(err,result)=>{
             if(!err)
             {
-                res.send({status:"ok", data:"signup successfull for "+req.body.name});
+                res.send({status:"ok", data:"updated successfull for "+req.body.email});
             }
             else{
-                res.send({status:"failed", data:"could not register"});
+                res.send({status:"failed", data:"could not update"+err});
             }
         })
     });
@@ -214,7 +216,7 @@ app.post("/sendmail", bodyParser.json(),(req,res)=>{
     // alert("hello")
     // res.send(client.user)
     console.log(req.body.clientemail, req.body.devemail)
-    sendMail(devemail,"ucvcxvuefudusgao",clientemail,emailsubject, emailcontent, info=>{
+    sendMail(clientemail,"ucvcxvuefudusgao",devemail,emailsubject, emailcontent, info=>{
         console.log(info)
         res.send(info)
     })

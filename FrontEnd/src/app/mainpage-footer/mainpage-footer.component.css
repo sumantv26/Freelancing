@@ -1,6 +1,10 @@
 .footer-container{
-    height: 400px;
+    /* height: 200px; */
     background-color:#1D4354;
+}
+
+.part-div{
+    display: flex;
 }
 .heading{
     font-size: 20px;
@@ -10,33 +14,36 @@
 }
 .line1{
     background-color: white;
-    width: 90%;
+    /* width: 90%; */
 }
 .company{
+    flex: 1;
     color: white;
-    height: 270px;
-    width: 31%;
+    /* height: 270px; */
+    /* width: 31%; */
     background-color:#1D4354;
     text-align: center;
 }
 .resources{
+    flex: 1;
     color: white;
-    height: 270px;
-    width: 31%;
+    /* height: 270px; */
+    /* width: 31%; */
     background-color:#1D4354;
     position: relative;
-    left: 32%;
-    top: -270px;
+    /* left: 32%;
+    top: -270px; */
     text-align: center;
 }
 .browse{
+    flex: 1;
     color: white;
-    height: 270px;
-    width: 31%;
+    /* height: 270px; */
+    /* width: 31%; */
     background-color:#1D4354;
     position: relative;
-    left:64%;
-    top:-540px;
+    /* left:64%; */
+    /* top:-540px; */
     text-align: center;
 }
 p{

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
      
      if(this.emailProp !="" && this.passwordProp!=""){
       // {email:this.emailProp, password:this.passwordProp}
-      this.ds.signIn()
+      this.ds.signIn({})
       .subscribe((response)=>{
        
         if(response.status=="ok")

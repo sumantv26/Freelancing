@@ -16,10 +16,10 @@ export class DataService {
     return this.http.post(this.baseURL+"/sign-up", data);
   }
 
-  signIn():any
+  signIn(data):any
   {
     // return this.http.post(this.baseURL+"/sign-in", data);
-    return this.http.get(this.baseURL+"/sign-up");
+    return this.http.post(this.baseURL+"/sign-up-chek",data);
   }
 
   
