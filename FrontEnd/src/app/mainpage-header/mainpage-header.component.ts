@@ -28,9 +28,16 @@ export class MainpageHeaderComponent implements OnInit {
   }
 
  toggle(){
-  var ul=document.getElementsByClassName("ul")[0]
-  ul.setAttribute("display","flex")
-  alert("flex")
+  // var ul=document.getElementsByClassName("ul")[0]
+  // ul.setAttribute("display","flex")
+  // alert("flex")
+
+  var x = document.getElementById("links");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
 
  }
 

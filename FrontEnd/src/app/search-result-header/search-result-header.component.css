@@ -1,7 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    /* font-family: 'Poppins', sans-serif; */
+    
 }
 header{
     font-family: 'Poppins', sans-serif;
@@ -9,17 +9,17 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
+    box-shadow: 0 0 20px gray;
+    /* background-color: #018328; */
 }
-.left-nav{
-}
+
 .logo{
     font-size: 20px;
     cursor: pointer;
     outline: none;
+   
 }
-.right-nav{
-    
-}
+
 
 ul li{
     display: inline-block;
@@ -63,9 +63,12 @@ button:hover{
     flex-direction: column;
     justify-content: space-between;
     right: 10%;
-    top:30px;
+    /* top:30px; */
+    font-size: 20px;
     width: 30px;
     height: 20px;
+    margin: 10px;
+    cursor: pointer;
 
 }
 
@@ -75,40 +78,6 @@ button:hover{
     background-color: black;
     border-radius: 10px;
 }
-
-@media all and (max-width:550px){
-    ul{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .toggle-button{
-        display: flex;
-    }
-    .right-nav{
-        width: 100%;
-    }
-    header{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-  
-    ul li{
-        text-align: center;
-        padding: 10px;
-    }
-    ul.active{
-        display: flex;
-    }
-
-    .lnk:hover{
-        background-color: #018328;
-        padding: 10px;
-        color: white;
-    }
-
-}
-
 /* search bar */
 .search-input{
    
@@ -125,8 +94,73 @@ button:hover{
     border-radius: 50px;
     border: 2px solid #018328;
     outline: none;
-    width: 300px;
+    /* width: 120%; */
 }
+
+@media all and (max-width:550px){
+
+    #links{
+        display: none;
+    }
+
+    ul{
+        display: flex;
+        position: relative;
+        top: 20%;
+        flex-direction: column;
+        width: 100%;
+    }
+    .toggle-button{
+        display: flex;
+        /* background-color: #018328; */
+    }
+    .right-nav{
+        width: 100%;
+    }
+    header{
+        /* width: 100%; */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  
+    ul li{
+        text-align: center;
+        padding: 10px;
+    }
+    ul.active{
+        display: flex;
+    }
+
+    .lnk:hover{
+        background-color: #018328;
+        padding: 10px;
+        color: white;
+        height: 50%;
+    }
+    .search-input {
+        display: flex;
+        text-align: center;
+/* background-color: blue; */
+        /* padding-left: 25px; */
+        left: 50%;
+        /* top: 10px;  */
+        flex-direction: column;
+        border-radius: 50px;
+        /* border: 2px solid #018328; */
+        transform: translate(-50%);
+        outline: none;
+        width: 200px;
+        margin-top: 20px;
+    }
+    .search-input input{
+        width: 200px;
+        /* background-color: red; */
+    }
+    
+
+}
+
+
 
 /*
 .left-nav{

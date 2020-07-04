@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           response.data.forEach(element => {
             // this.details.push(element.name)
             // console.log(element.email,element.password)
-            if(element.email==this.emailProp && element.password==this.passwordProp){
+            if(element.email==this.emailProp.toLowerCase() && element.password==this.passwordProp){
               acFound=true
               console.log(element.email, element.password)
               localStorage.setItem('email', element.email);

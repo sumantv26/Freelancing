@@ -47,7 +47,7 @@ export class SearchResultComponent implements OnInit {
       }
 
         if(found){
-          this.text="No more data "
+          // this.text="No more data "
         }
         else{
           this.text="No Data Found"

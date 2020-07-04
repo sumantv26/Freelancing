@@ -12,24 +12,26 @@
        </div>
       
     </div>
-
-    <div class="right-nav">
-        <div  class="toggle-button" (click)="toggle()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+    <div  class="toggle-button" (click)="toggle()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <div class="right-nav" id="right-nav">
+       
     
-            <ul class="item">
-                <li class="lnk" routerLink="/mainpage/home">HOME</li>
-                <li class="lnk" routerLink="/mainpage/contact">CONTACT</li>
-                <li *ngIf="isUser; then login else logout" ></li>
-                <ng-template #login >
-                    <li class="lnk" routerLink="/mainpage/signin">SIGN IN</li>
-                    <li ><button  routerLink="/mainpage/signup" >SIGN UP</button></li>
-                </ng-template>
-                <ng-template #logout ><li class="lnk" (click)="gotoDeshboard()"  title="click here for Deshboard" >{{currentUser}}</li></ng-template>
-               
-            </ul>
+            <div id="links">
+                <ul id="item"  class="item">
+                    <li class="lnk" routerLink="/mainpage/home">HOME</li>
+                    <li class="lnk" routerLink="/mainpage/contact">CONTACT</li>
+                    <li *ngIf="isUser; then login else logout" ></li>
+                    <ng-template #login >
+                        <li class="lnk" routerLink="/mainpage/signin">SIGN IN</li>
+                        <li ><button  routerLink="/mainpage/signup" >SIGN UP</button></li>
+                    </ng-template>
+            <ng-template #logout ><li class="lnk" (click)="gotoDeshboard()"  title="click here for Deshboard" >{{currentUser}}</li></ng-template>
+                   
+                </ul>
+            </div>
     </div>
 </header>

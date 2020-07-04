@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
   signUP()
   { var acFound=false;
     if(this.nameProp!="" && this.emailProp!="" && this.passwordProp!="" && this.mobileNoProp!=""){
-    this.ds.signIn({email:this.emailProp})
+    this.ds.signIn({email:this.emailProp.toLowerCase()})
     .subscribe((response)=>{
 
       if(response.status=="ok"){
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
       }
       else{
         if(this.passwordProp==this.confirmPassProp){
-                 this.ds.signUp({name:this.nameProp, email:this.emailProp, password:this.passwordProp ,phone:this.mobileNoProp})
+                 this.ds.signUp({name:this.nameProp, email:this.emailProp.toLowerCase(), password:this.passwordProp ,phone:this.mobileNoProp})
             .subscribe((response)=>{
               if(response.status=="ok")
               {
