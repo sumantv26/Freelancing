@@ -43,6 +43,7 @@ app.use(express.static(path.join(__dirname,'FrontEnd')));
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         console.log("in destination");
+    
       cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
@@ -89,6 +90,10 @@ var storage = multer.diskStorage({
  
   
   var upload = multer({ storage: storage })
+
+  app.get('/', (req,res)=>{
+    res.sendFile('index.html');
+})
 
 
   app.get('/', (req,res)=>{
@@ -187,6 +192,7 @@ app.get('/dev', bodyParser.json() ,(req,res)=>{
     collection.find(req.body).toArray((err,docs)=>{
         if(!err && docs.length>0)
         {
+            // alert("in dev")
             res.send({status:"ok", data:docs});
         }
         else{
@@ -280,6 +286,6 @@ app.get("**", (req,res)=>{
 })
 
 app.listen(4000, ()=>{
-    console.log("Server is listening on port 4000");
+    console.log("Server is listening on port 80");
     // console.log("got to browser and hit 'localhost:3000'");
 })

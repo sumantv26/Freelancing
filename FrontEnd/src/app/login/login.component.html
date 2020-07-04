@@ -1,6 +1,7 @@
 <div class="one">
     <div class="two">
-        <p class="p1">Log in and get to work </p>
+        <div class="white-div">
+          <p class="p1">Log in and get to work </p>
           <form ngNativeValidate #userForm="ngForm">
             <div class="form-group" >
               <input  #emailRef="ngModel" type="email" class="form-control"  [(ngModel)]="emailProp" name="email" placeholder="Email" id="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
@@ -24,6 +25,7 @@
           <div class="form-group">
           <p class="p2">New User</p>
           <button  routerLink="/mainpage/signup"  type="submit" class="btn btn-success" id="signup" >Sign Up</button>
+        </div>
         </div>
     </div>
 </div>

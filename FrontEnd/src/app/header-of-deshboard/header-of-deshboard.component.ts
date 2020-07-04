@@ -26,8 +26,9 @@ export class HeaderOfDeshboardComponent implements OnInit {
  }
 
  logout(){
-  localStorage.setItem("login","empty")
+  localStorage.setItem("currentUser","")
   this.router.navigate(["/mainpage/home"])
+  // window.location.href = "http://localhost:4200/searchResult"
  }
  gotoHome(){
   this.router.navigate(["/mainpage/home"])

@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
               console.log(element.email, element.password)
               localStorage.setItem('email', element.email);
               localStorage.setItem('name', element.name);
-              localStorage.setItem("login",element.name)
+              localStorage.setItem("currentUser",element.name)
               this.router.navigate(['/dev-dashboard']); 
               
             }

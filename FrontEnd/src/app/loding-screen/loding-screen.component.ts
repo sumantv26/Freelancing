@@ -12,6 +12,7 @@ export class LodingScreenComponent implements OnInit {
 
   ngOnInit(): void {
    this.gotologin()
+   localStorage.setItem("currentUser","")
   }
 
   gotologin(){

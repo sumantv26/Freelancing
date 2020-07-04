@@ -7,7 +7,7 @@
 </div>
 <div class="one">
     <div class="two">
-        <p class="p1">Put Your Details: </p>
+        <p class="p1" class="section-heading">Put Your Details </p>
           <form #f="ngForm" ngNativeValidate>
             <table>
 
@@ -105,7 +105,7 @@
           </td>
         </tr>
         <tr>
-          <td><h3 style="margin-top: 50px; color: green;">Title & Description</h3></td>
+          <td><h3 class="section-heading">Title & Description</h3></td>
         </tr>
         <tr>
           <td><label for="title">Title:</label></td>
@@ -117,7 +117,7 @@
     </tr>
 
     <tr>
-      <td><h3 style="margin-top: 50px; color: green;">Social Media Accounts </h3></td>
+      <td><h3 class="section-heading" >Social Media Accounts </h3></td>
     </tr>
     <tr>
       <td><label for="title">Facebook:</label></td>
@@ -137,6 +137,7 @@
           
             <h5 id="alerttext" [style.color]="variableColor"  [innerHTML]="variable"></h5>
             <button type="submit" class="btn btn-success"  [innerHTML]="buttonText" (click)="save(cat.value,exp.value,uname.value,deg.value,skills.value,rate.value,loc.value,lan.value,title.value,dis.value)" ></button>
+            <div><em style="color: red; font-size: 20px;">* Please Select Small Image Otherwise It will take long Time</em></div>
             
           </form>
     </div>

@@ -23,12 +23,12 @@
             <ul class="item">
                 <li class="lnk" routerLink="/mainpage/home">HOME</li>
                 <li class="lnk" routerLink="/mainpage/contact">CONTACT</li>
-                <li *ngIf="currentUser=='Empty'; then login else logout" ></li>
+                <li *ngIf="isUser; then login else logout" ></li>
                 <ng-template #login >
                     <li class="lnk" routerLink="/mainpage/signin">SIGN IN</li>
                     <li ><button  routerLink="/mainpage/signup" >SIGN UP</button></li>
                 </ng-template>
-                <ng-template #logout ><li class="lnk" (click)="gotoDeshboard()"  title="click here for Deshboard" >{{currentUser}}</li></ng-template>
+        <ng-template #logout ><li class="lnk" (click)="gotoDeshboard()"  title="click here for Deshboard" >{{currentUser}}</li></ng-template>
                
             </ul>
     </div>
