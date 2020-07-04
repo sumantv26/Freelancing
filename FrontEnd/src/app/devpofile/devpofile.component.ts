@@ -48,7 +48,7 @@ export class DevpofileComponent implements OnInit {
         res.data.forEach(element => {
           if(element.email==email){
             this.id=element.id
-            this.imgSource="http://13.59.163.207/"+element.email+"_profile.jpg"
+            this.imgSource="http://localhost:4000/"+element.email+"_profile.jpg"
             this.emailProp=element.email;
             this.nameProp=element.name[0].toUpperCase()+element.name.slice(1);
             this.experienceProp=element.experience+" year";
