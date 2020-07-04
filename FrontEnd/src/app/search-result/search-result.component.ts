@@ -23,7 +23,7 @@ export class SearchResultComponent implements OnInit {
 
     var found=false;
 
-    this.category=localStorage.getItem("searchResult")
+    this.category=localStorage.getItem("searchResult").toLowerCase();
     var arr=this.category.split(" ")
     this.devs.GetDevData().subscribe((response)=>{
       if(response.status=="ok"){

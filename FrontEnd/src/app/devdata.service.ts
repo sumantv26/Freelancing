@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DevdataService {
 
-  baseURL = "http://localhost:4000";
+  baseURL = "http://13.59.163.207";
 
   constructor(private http: HttpClient) { }
 

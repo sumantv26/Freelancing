@@ -1,6 +1,7 @@
 <div class="one">
     <div class="two">
-        <p class="p1">Get your free account</p>
+      <div class="white-div">
+          <p class="p1">Get your free account</p>
           <form #userForm="ngForm" ngNativeValidate >
           <!-- <h1> {{userForm.form.valid}}</h1>  -->
             <div class="form-group">
@@ -15,11 +16,11 @@
                 </div>
               </div>
               <div class="form-group">
-                <input #mobileRef="ngModel" type="tel" class="form-control"  [(ngModel)]="mobileNoProp" name="mobileno" placeholder="Mobile Number" id="mobNo" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required minlength="10">
+                <input #mobileRef="ngModel" type="tel" class="form-control"  [(ngModel)]="mobileNoProp" name="mobileno" placeholder="Mobile Number" id="mobNo" placeholder="Mobile Number" pattern="^[0-9]{10}$" required minlength="10">
                 <div *ngIf="mobileRef.errors">
                 <span *ngIf="mobileRef.touched && mobileRef.errors.required" > this a required field </span>
-                <span *ngIf="mobileRef.touched && mobileRef.errors.minlength" > minimum length should be 8 charcters </span>
-                <span *ngIf="mobileRef.touched && mobileRef.errors.pattern" >Format: 123-456-7890</span>
+                <span *ngIf="mobileRef.touched && mobileRef.errors.minlength" >length should be 10 charcters </span>
+                <span *ngIf="mobileRef.touched && mobileRef.errors.pattern" >Format: 1234567890</span>
                 </div>
               </div>
             <div class="form-group">
@@ -44,6 +45,8 @@
               </div>
             <button type="submit" [disabled]="userForm.form.invalid" class="btn btn-success" (click)="signUP()" >Register</button>
           </form>
+
+      </div>
     </div>
 </div>
 

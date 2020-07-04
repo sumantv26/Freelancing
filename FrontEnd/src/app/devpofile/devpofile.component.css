@@ -189,3 +189,31 @@ h4{
     margin-left: 6%;
     margin-bottom: 5%;
 }
+@media all and (max-width:670px){
+    .center-div{
+        width: 100%;
+    }
+    .left-div{
+        display: none;
+    }
+    .part-hr{
+        display: none;
+    }
+}
+
+@media all and (max-width:550px){
+    .center-div{
+        width: 100%;
+    }
+    .left-div{
+        display: none;
+    }
+    .part-hr{
+        display: none;
+    }
+
+    .title-text{
+        font-size: 30px;
+        /* color: red; */
+    }
+}
