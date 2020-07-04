@@ -20,6 +20,7 @@ import { DeveloperDashBoardComponent } from './developer-dash-board/developer-da
 import { SearchResultComponent } from './search-result/search-result.component';
 import { DevpofileComponent } from './devpofile/devpofile.component';
 import { LodingScreenComponent } from './loding-screen/loding-screen.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [{path:"",component:LodingScreenComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [{path:"",component:LodingScreenComponent},
                           },
                           {path:'dev-dashboard',component:DeveloperDashBoardComponent},
                           {path:'searchResult',component:SearchResultComponent},
-                          {path:'devprofile',component:DevpofileComponent}
+                          {path:'devprofile',component:DevpofileComponent},
+                          {path:'**',component:PageNotFoundComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

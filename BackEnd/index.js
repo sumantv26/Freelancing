@@ -36,6 +36,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.static(path.join(__dirname,'uploads')));
+app.use(express.static(path.join(__dirname,'FrontEnd')));
 
 
 
@@ -83,9 +84,16 @@ var storage = multer.diskStorage({
 
     }
   })
+
+ 
  
   
   var upload = multer({ storage: storage })
+
+
+  app.get('/', (req,res)=>{
+      res.sendFile('index.html');
+  })
 
 
   app.post('/images',  upload.single('profile'), 
@@ -267,7 +275,9 @@ function sendMail(from, appPassword, to, subject,  htmlmsg, callback)
 
 }
 
-
+app.get("**", (req,res)=>{
+    res.sendFile(path.join(__dirname,"FrontEnd","index.html"));
+})
 
 app.listen(4000, ()=>{
     console.log("Server is listening on port 4000");

@@ -30,6 +30,7 @@ import { DevpofileComponent } from './devpofile/devpofile.component';
 import { HeaderOfDeshboardComponent } from './header-of-deshboard/header-of-deshboard.component';
 import { LodingScreenComponent } from './loding-screen/loding-screen.component';
 import { SearchResultHeaderComponent } from './search-result-header/search-result-header.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { SearchResultHeaderComponent } from './search-result-header/search-resul
     DevpofileComponent,
     HeaderOfDeshboardComponent,
     LodingScreenComponent,
-    SearchResultHeaderComponent
+    SearchResultHeaderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
