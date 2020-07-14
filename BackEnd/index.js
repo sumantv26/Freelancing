@@ -286,6 +286,6 @@ app.get("**", (req,res)=>{
 })
 
 app.listen(4000, ()=>{
-    console.log("Server is listening on port 80");
+    console.log("Server is listening on port 4000");
     // console.log("got to browser and hit 'localhost:3000'");
 })
