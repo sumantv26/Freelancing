@@ -12,8 +12,8 @@ const { info, error } = require('console');
 
 
 
-// var client = new MongoClient('mongodb://localhost:27017/chatroom', {useNewUrlParser:true})
-var client = new MongoClient("mongodb+srv://sumant:rajendrav26@cluster0-6ko7m.mongodb.net/freelance?retryWrites=true&w=majority", {useNewUrlParser:true})
+// var client = new MongoClient('', {useNewUrlParser:true})
+var client = new MongoClient("", {useNewUrlParser:true})
 
 const PORT= process.env.PORT||3000
 
@@ -232,7 +232,7 @@ app.post("/sendmail", bodyParser.json(),(req,res)=>{
     // alert("hello")
     // res.send(client.user)
     console.log(req.body.clientemail, req.body.devemail)
-    sendMail("sumantv26@gmail.com","ucvcxvuefudusgao",clientemail,emailsubject, emailcontent, info=>{
+    sendMail("","",clientemail,emailsubject, emailcontent, info=>{
         console.log(info)
         res.send(info)
     })
